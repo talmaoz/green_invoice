@@ -1,12 +1,19 @@
 <template>
   <div id="app">
     <app_header/>
-    <app_main/>
+    <p>Testing</p>
+    <router-view/>
     <app_footer/>
   </div>
 </template>
 
 <style lang="scss">
+
+  <!--@import "@/scss/_variables.scss";-->
+
+  <!--p {-->
+  <!--  color: $color-1-->
+  <!--}-->
 
   * {
     box-sizing: border-box;
@@ -21,21 +28,9 @@
     font-size: 16px;
   }
 
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    height: 100%;
-    text-align: center;
-    padding: 0 30px;
-  }
-
   @media (max-height: 500px), (max-width: 750px) {
     #app {
       font-size: 12px;
-    }
-
-    .container {
-      padding: 0 3px;
     }
   }
 
@@ -44,14 +39,12 @@
 <script>
   import app_footer from '@/components/appFooter.vue';
   import app_header from '@/components/appHeader.vue';
-  import app_main from '@/views/appMain.vue';
 
   export default {
     name: 'app',
     components: {
       app_footer,
       app_header,
-      app_main
     },
   };
 </script>
