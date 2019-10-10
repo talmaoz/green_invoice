@@ -77,12 +77,12 @@
   .login_page {
 
     & > div {
-      width: 50%;
       height: 1100px;
       display: inline-block;
     }
 
     .left {
+      width: 60%;
       background-color: $color-5;
       display: flex;
       flex-direction: column;
@@ -105,6 +105,7 @@
     }
 
     .right {
+      width: 40%;
       float: right;
       display: flex;
       flex-direction: column;
@@ -112,11 +113,10 @@
 
       header {
         img {
+          height: 36px;
           float: right;
-          width: 24%;
-          margin-top: 40px;
-          margin-right: 4.5%;
-          margin-left: 71.5%;
+          margin-top: 20px;
+          margin-right: 25px;
         }
       }
 
@@ -163,7 +163,6 @@
             }
 
             p {
-              margin: 0;
               display: inline-block;
             }
           }

@@ -15,6 +15,10 @@
     box-sizing: border-box;
   }
 
+  p {
+    margin: 0;
+  }
+
   #app {
     font-family: almoni-neue-dl, arial, sans-serif;
     -webkit-font-smoothing: antialiased;
