@@ -1,19 +1,15 @@
 <template>
   <div id="app">
-    <app_header/>
-    <p>Testing</p>
     <router-view/>
-    <app_footer/>
   </div>
 </template>
 
 <style lang="scss">
 
-  <!--@import "@/scss/_variables.scss";-->
-
-  <!--p {-->
-  <!--  color: $color-1-->
-  <!--}-->
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
 
   * {
     box-sizing: border-box;
@@ -37,14 +33,8 @@
 </style>
 
 <script>
-  import app_footer from '@/components/appFooter.vue';
-  import app_header from '@/components/appHeader.vue';
 
   export default {
     name: 'app',
-    components: {
-      app_footer,
-      app_header,
-    },
   };
 </script>
