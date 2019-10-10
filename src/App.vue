@@ -25,6 +25,7 @@
   p {
     margin: 0;
     cursor: context-menu;
+    text-align: right;
   }
 
   button {
@@ -33,6 +34,7 @@
 
   a {
     color: $color-4;
+    text-align: right;
   }
 
   #app {

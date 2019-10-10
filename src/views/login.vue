@@ -162,7 +162,7 @@
             }
 
             &_info {
-
+              display: block;
             }
           }
         }
@@ -204,7 +204,6 @@
           }
 
           &_company_description {
-            text-align: right;
             margin-right: 3px;
           }
         }
