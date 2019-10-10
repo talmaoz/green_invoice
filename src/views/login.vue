@@ -188,7 +188,9 @@
             border-radius: 30px;
             font-size: 17px;
             border: 1px solid $color-1;
-
+            font-weight: 600;
+            background-image: url('../assets/Google_G.svg');
+            background-repeat: no-repeat;
           }
         }
       }
