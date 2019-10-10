@@ -108,7 +108,7 @@
     }
 
     .right {
-      width: 40%;
+      width: 50%;
       float: right;
       display: flex;
       flex-direction: column;
@@ -116,8 +116,8 @@
 
       header {
 
-        padding-top: 35px;
-        padding-right: 70px;
+        padding-top: 36px;
+        padding-right: 85px;
 
         img {
           height: 36px;
@@ -126,26 +126,32 @@
       }
 
       .contained {
-        margin-left: 180px;
-        margin-right: 300px;
-        min-width: 491px;
+        margin-left: 183px;
+        margin-right: 351px;
+        min-width: 417px;
       }
 
       .login {
-        border: 3px solid red;
+        /*border: 3px solid red;*/
         margin-bottom: 35px;
-        min-height: 550px;
+        min-height: 500px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
         &_title {
-          font-size: 2.8em;
-          font-weight: bold;
+          font-size: 40px;
+          font-weight: 800;
           color: $color-1;
-          letter-spacing: -0.05em;
+          letter-spacing: -0.03em;
           text-align: center;
-          /*cursor: context-menu;*/
+          transform: scale(1, 1.5);
+          -webkit-transform: scale(1.07, 1.40);
+          -moz-transform: scale(1, 1.5);
+          -ms-transform: scale(1, 1.5);
+          -o-transform: scale(1, 1.5);
+          position: relative;
+          top: -11px;
         }
 
         &_form {
