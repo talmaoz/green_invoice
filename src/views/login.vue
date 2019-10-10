@@ -76,6 +76,9 @@
 
   .login_page {
 
+    width: 100%;
+    height: 100%;
+
     & > div {
       height: 1100px;
       display: inline-block;
@@ -113,8 +116,8 @@
 
       header {
 
-        padding-top: 20px;
-        padding-right: 25px;
+        padding-top: 35px;
+        padding-right: 70px;
 
         img {
           height: 36px;
@@ -129,15 +132,18 @@
 
       .login {
         border: 3px solid red;
+        margin-bottom: 35px;
         min-height: 550px;
-        min-width: 422px;
+        min-width: 491px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
         &_title {
-          font-size: 2em;
+          font-size: 2.8em;
+          font-weight: bold;
           color: $color-1;
+          letter-spacing: -0.05em;
           text-align: center;
           /*cursor: context-menu;*/
         }
@@ -174,6 +180,7 @@
 
           display: inline-block;
           width: 70%;
+
           &_rights_reserved {
             display: flex;
             flex-direction: row-reverse;
