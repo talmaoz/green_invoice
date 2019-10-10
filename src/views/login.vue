@@ -120,10 +120,22 @@
         }
       }
 
+      .contained {
+        margin-left: 180px;
+        margin-right: 300px;
+      }
+
       .login {
+        border: 3px solid red;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
         &_title {
-
+          font-size: 2em;
+          color: $color-1;
+          text-align: center;
         }
 
         &_form {
