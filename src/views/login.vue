@@ -25,8 +25,8 @@
           </div>
         </div>
         <div class="login_buttons">
-          <button class="login_buttons_username_login">כניסה</button>
           <button class="login_buttons_google_login">כניסה עם גוגל</button>
+          <button class="login_buttons_username_login">כניסה</button>
         </div>
       </div>
 
@@ -134,7 +134,7 @@
       .login {
         /*border: 3px solid red;*/
         margin-bottom: 35px;
-        min-height: 500px;
+        min-height: 476px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -168,10 +168,25 @@
         }
 
         &_buttons {
+
           &_username_login {
+            background-color: $color-1;
+            color: white;
+            line-height: 50px;
+            width: 55%;
+            margin-left: 2.5%;
+            border-radius: 30px;
+            font-size: 17px;
           }
 
           &_google_login {
+            background-color: white;
+            color: $color-1;
+            line-height: 50px;
+            width: 40%;
+            margin-right: 2.5%;
+            border-radius: 30px;
+            font-size: 17px;
           }
         }
       }

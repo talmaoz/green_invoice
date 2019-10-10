@@ -30,6 +30,7 @@
 
   button {
     outline: none;
+    border: none;
   }
 
   a {
