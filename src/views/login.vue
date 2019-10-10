@@ -169,28 +169,33 @@
 
         &_buttons {
 
+          & > button {
+            line-height: 54px;
+            font-size: 17px;
+            border-radius: 29px;
+          }
+
           &_username_login {
             background-color: $color-1;
             color: white;
-            line-height: 52px;
-            width: 55%;
-            margin-left: 2.5%;
-            border-radius: 30px;
-            font-size: 17px;
+            width: 54%;
+            margin-left: 2%;
+            font-weight: 500;
           }
 
           &_google_login {
             background-color: white;
             color: $color-1;
-            line-height: 50px;
-            width: 40%;
-            margin-right: 2.5%;
+            width: 41%;
+            margin-right: 3%;
             border-radius: 30px;
-            font-size: 17px;
-            border: 1px solid $color-1;
+            border: 1px solid #5268F1;
             font-weight: 600;
-            background-image: url('../assets/Google_G.svg');
+            background-image: url(/img/Google_G.5f6ff37d.svg);
             background-repeat: no-repeat;
+            background-size: 25px auto;
+            padding-left: 40px;
+            background-position: left 18px center;
           }
         }
       }
