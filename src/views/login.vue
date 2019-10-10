@@ -128,13 +128,13 @@
       .contained {
         margin-left: 180px;
         margin-right: 300px;
+        min-width: 491px;
       }
 
       .login {
         border: 3px solid red;
         margin-bottom: 35px;
         min-height: 550px;
-        min-width: 491px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -172,6 +172,7 @@
 
       .app_footer {
 
+        /*width: 100%;*/
         display: flex;
         flex-direction: row-reverse;
         padding-bottom: 53px;
