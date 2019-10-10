@@ -85,7 +85,7 @@
     }
 
     .left {
-      width: 60%;
+      width: 50%;
       background-color: $color-5;
       display: flex;
       flex-direction: column;
@@ -94,15 +94,15 @@
       overflow: hidden;
 
       .center {
-        height: 671px;
+        height: 746px;
         width: 100%;
         position: relative;
 
         img {
-          height: 671px;
+          height: 746px;
           position: absolute;
-          top: 0;
-          right: -78px;
+          top: 4px;
+          right: -87px;
         }
       }
     }
