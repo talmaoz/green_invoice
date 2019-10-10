@@ -172,7 +172,7 @@
           &_username_login {
             background-color: $color-1;
             color: white;
-            line-height: 50px;
+            line-height: 52px;
             width: 55%;
             margin-left: 2.5%;
             border-radius: 30px;
@@ -187,6 +187,8 @@
             margin-right: 2.5%;
             border-radius: 30px;
             font-size: 17px;
+            border: 1px solid $color-1;
+
           }
         }
       }
