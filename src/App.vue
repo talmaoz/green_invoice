@@ -17,6 +17,11 @@
 
   p {
     margin: 0;
+    cursor: context-menu;
+  }
+
+  button {
+    outline: none;
   }
 
   #app {

@@ -112,11 +112,13 @@
       justify-content: space-between;
 
       header {
+
+        padding-top: 20px;
+        padding-right: 25px;
+
         img {
           height: 36px;
           float: right;
-          margin-top: 20px;
-          margin-right: 25px;
         }
       }
 
@@ -127,7 +129,8 @@
 
       .login {
         border: 3px solid red;
-        min-height: 500px;
+        min-height: 550px;
+        min-width: 422px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -136,6 +139,7 @@
           font-size: 2em;
           color: $color-1;
           text-align: center;
+          /*cursor: context-menu;*/
         }
 
         &_form {
@@ -162,8 +166,14 @@
 
       .app_footer {
 
+        display: flex;
+        flex-direction: row-reverse;
+        padding-bottom: 53px;
+
         &_right {
 
+          display: inline-block;
+          width: 70%;
           &_rights_reserved {
             display: flex;
             flex-direction: row-reverse;
@@ -186,6 +196,8 @@
         }
 
         &_left {
+          width: 30%;
+          padding-top: 1em;
         }
       }
     }
