@@ -6,16 +6,13 @@
 
 <style lang="scss">
 
-  @import "@/scss/_variables.scss";
+  @import "./scss/_variables.scss";
 
   html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    /*overflow: hidden;*/
-    /*background-color: black;*/
-    /*box-sizing: border-box;*/
   }
 
   * {

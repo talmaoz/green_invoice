@@ -40,7 +40,7 @@
           <p class="app_footer_right_company_description">הפקת חשבוניות ומסמכים עסקיים באינטרנט</p>
         </div>
 
-        <a class="app_footer_left">להצטרפות חינם</a>
+        <router-link to="/welcome" class="app_footer_left">להצטרפות חינם</router-link>
 
 
       </footer>
@@ -132,9 +132,8 @@
       }
 
       .login {
-        /*border: 3px solid red;*/
-        margin-bottom: 35px;
-        min-height: 476px;
+        margin-bottom: 64px;
+        min-height: 478px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -155,10 +154,14 @@
         }
 
         &_form {
-
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
           &_input {
 
-            margin: 3px 0;
+            margin: 30px 0;
+
+
 
             &_label {
 
@@ -208,7 +211,6 @@
 
       .app_footer {
 
-        /*width: 100%;*/
         display: flex;
         flex-direction: row-reverse;
         padding-bottom: 30px;
@@ -243,7 +245,8 @@
 
         &_left {
           width: 30%;
-          padding-top: 1em;
+          padding-top: 1.7em;
+          text-align: left;
         }
       }
     }
