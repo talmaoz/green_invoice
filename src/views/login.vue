@@ -21,7 +21,7 @@
           </div>
           <div class="login_form_input">
             <p class="login_form_input_label">סיסמה</p>
-            <a class="login_form_input_info">שכחת סיסמא?</a>
+            <a class="login_form_input_info">?שכחת סיסמא</a>
           </div>
         </div>
         <div class="login_buttons">
@@ -34,7 +34,7 @@
         <div class="app_footer_right">
           <div class="app_footer_right_rights_reserved">
             <img :src="require('../assets/green_leaf.svg')" alt="Green Invoice Logo"/>
-            <p>חשבונית ירוקה C 2019</p>
+            <p>חשבונית ירוקה &copy; 2019 </p>
           </div>
 
           <p class="app_footer_right_company_description">הפקת חשבוניות ומסמכים עסקיים באינטרנט</p>
@@ -157,15 +157,18 @@
         &_form {
 
           &_input {
+
+            margin: 3px 0;
+
             &_label {
 
             }
 
             &_info {
               display: block;
-              -webkit-box-shadow: 0px -3px 0px 0px rgba(0,0,0,0.75);
-              -moz-box-shadow: 0px -3px 0px 0px rgba(0,0,0,0.75);
-              box-shadow: 0px -3px 0px 0px rgba(0,0,0,0.75);
+              -webkit-box-shadow: 0px -3px 0px 0px rgb(39, 72, 93);
+              -moz-box-shadow: 0px -3px 0px 0px rgb(39, 72, 93);
+              box-shadow: 0px -3px 0px 0px rgb(39, 72, 93);
             }
           }
         }
@@ -208,7 +211,8 @@
         /*width: 100%;*/
         display: flex;
         flex-direction: row-reverse;
-        padding-bottom: 53px;
+        padding-bottom: 30px;
+        font-size: 14px;
 
         &_right {
 
@@ -227,11 +231,13 @@
 
             p {
               display: inline-block;
+
             }
           }
 
           &_company_description {
             margin-right: 3px;
+            margin-top: 4px;
           }
         }
 
