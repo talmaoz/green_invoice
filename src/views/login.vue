@@ -140,18 +140,18 @@
         justify-content: space-between;
 
         &_title {
-          font-size: 40px;
+          font-size: 36px;
           font-weight: 800;
           color: $color-1;
-          letter-spacing: -0.03em;
           text-align: center;
-          transform: scale(1, 1.5);
-          -webkit-transform: scale(1.07, 1.40);
-          -moz-transform: scale(1, 1.5);
-          -ms-transform: scale(1, 1.5);
-          -o-transform: scale(1, 1.5);
+          transform: scale(1.1, 1.6);
+          -webkit-transform: scale(1.1, 1.6);
+          -moz-transform: scale(1.1, 1.6);
+          -ms-transform: scale(1.1, 1.6);
+          -o-transform: scale(1.1, 1.6);
           position: relative;
           top: -11px;
+          margin: 0px auto 10px;
         }
 
         &_form {
