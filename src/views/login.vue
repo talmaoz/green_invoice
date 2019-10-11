@@ -191,7 +191,7 @@
             border-radius: 30px;
             border: 1px solid #5268F1;
             font-weight: 600;
-            background-image: url(/img/Google_G.5f6ff37d.svg);
+            background-image: url('../assets/Google_G.svg');
             background-repeat: no-repeat;
             background-size: 25px auto;
             padding-left: 40px;
