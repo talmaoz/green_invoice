@@ -9,7 +9,7 @@
 
     <div class="right">
       <header>
-        <img :src="require('@/assets/green_logo.svg')" alt="Green Invoice Logo"/>
+        <img :src="require('../assets/green_logo.svg')" alt="Green Invoice Logo"/>
       </header>
 
       <div class="login  contained">
@@ -33,7 +33,7 @@
       <footer class="app_footer contained">
         <div class="app_footer_right">
           <div class="app_footer_right_rights_reserved">
-            <img :src="require('@/assets/green_leaf.svg')" alt="Green Invoice Logo"/>
+            <img :src="require('../assets/green_leaf.svg')" alt="Green Invoice Logo"/>
             <p>חשבונית ירוקה C 2019</p>
           </div>
 
@@ -72,7 +72,7 @@
 
 <style lang="scss" scoped>
 
-  @import "@/scss/_variables.scss";
+  @import "../scss/_variables.scss";
 
   .login_page {
 
@@ -148,10 +148,10 @@
           -webkit-transform: scale(1.1, 1.6);
           -moz-transform: scale(1.1, 1.6);
           -ms-transform: scale(1.1, 1.6);
-          -o-transform: scale(1.1, 1.6);
+          /*-o-transform: scale(1.1, 1.6);*/
           position: relative;
           top: -11px;
-          margin: 0px auto 10px;
+          margin: 0 auto 10px;
         }
 
         &_form {
@@ -163,6 +163,9 @@
 
             &_info {
               display: block;
+              -webkit-box-shadow: 0px -3px 0px 0px rgba(0,0,0,0.75);
+              -moz-box-shadow: 0px -3px 0px 0px rgba(0,0,0,0.75);
+              box-shadow: 0px -3px 0px 0px rgba(0,0,0,0.75);
             }
           }
         }
