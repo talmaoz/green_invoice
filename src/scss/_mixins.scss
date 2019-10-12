@@ -11,3 +11,15 @@
     @content;
   }
 }
+
+@mixin w3 {
+  @media (max-width: #{$screen-max-width-3}) {
+    @content;
+  }
+}
+
+@mixin h1 {
+  @media (max-height: #{$screen-max-height-1}) {
+    @content;
+  }
+}

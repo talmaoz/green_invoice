@@ -82,11 +82,16 @@
 
     & > div {
       height: 1100px;
+      @include h1 {
+        height: 100%;
+        max-height: 1100px;
+      }
       display: inline-block;
     }
 
     .left {
       width: 50%;
+      @include w3 {display: none;}
       background-color: $color-5;
       display: flex;
       flex-direction: column;
@@ -110,6 +115,7 @@
 
     .right {
       width: 50%;
+      @include w3 {width: 100%;}
       float: right;
       display: flex;
       flex-direction: column;
@@ -128,7 +134,7 @@
       }
 
       .contained {
-        padding-right: 10px;
+        /*padding-right: 10px;*/
         margin-left: 183px;
         margin-right: 341px;
         min-width: 417px;
@@ -171,7 +177,7 @@
 
           &_input {
 
-            margin: 30px 0;
+            margin: 19px 0;
 
             &_label {
               font-size: 20px;
@@ -180,7 +186,6 @@
 
             &_info {
               display: block;
-              box-shadow: 0px -2px 1px -2px $color-2;
               border-top: 1px solid $color-2;;
               color: $color-2;
               font-size: 14px;
@@ -221,6 +226,7 @@
             background-repeat: no-repeat;
             background-size: 25px auto;
             padding-left: 40px;
+            padding-right: 12px;
             background-position: left 18px center;
           }
         }
@@ -231,6 +237,7 @@
         display: flex;
         flex-direction: row-reverse;
         padding-bottom: 30px;
+        padding-right: 10px;
         font-size: 14px;
 
         &_right {
