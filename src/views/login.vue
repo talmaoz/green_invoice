@@ -15,7 +15,7 @@
       <div class="login  contained">
         <p class="login_title">התחברות לחשבונית ירוקה</p>
         <div class="login_form">
-          <div class="login_form_input">
+          <div class="login_form_input login_form_input_top">
             <p class="login_form_input_label">מייל</p>
             <p class="login_form_input_info">כתובת המייל איתה נרשמת לחשבונית ירוקה</p>
           </div>
@@ -120,14 +120,15 @@
         padding-right: 85px;
 
         img {
-          height: 36px;
+          height: 34px;
           float: right;
         }
       }
 
       .contained {
+        padding-right: 10px;
         margin-left: 183px;
-        margin-right: 351px;
+        margin-right: 341px;
         min-width: 417px;
       }
 
@@ -166,6 +167,7 @@
 
             &_label {
               font-size: 20px;
+              padding-bottom: 3px;
             }
 
             &_info {
@@ -177,6 +179,10 @@
               font-size: 14px;
               line-height: 45px;
             }
+          }
+
+          &_input_top {
+            margin-bottom: 4px;
           }
         }
 

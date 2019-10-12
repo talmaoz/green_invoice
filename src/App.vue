@@ -41,6 +41,7 @@
     -moz-osx-font-smoothing: grayscale;
     width: 100%;
     height: 100%;
+    max-width: 1920px;
     font-size: 16px;
   }
 
