@@ -136,6 +136,11 @@
           padding-right: 40px;
           margin-right: 0;
         }
+        @include w2 {
+          padding-right: 20px;
+          padding-left: 20px;
+          margin: 0 auto;
+        }
       }
 
       .login {
