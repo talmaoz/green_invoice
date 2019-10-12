@@ -171,14 +171,14 @@
         justify-content: space-between;
 
         &_title {
-          font-size: 30px;
-          @include w3 {font-size: 36px;}
+          font-size: 36px;
           @include w4 {font-size: 28px;}
+          transform: scale(1.1, 1.6);
+          @include w3 {transform: none;}
           font-weight: 800;
           color: $color-1;
           text-align: center;
-          transform: scale(1.1, 1.6);
-          @include w3 {transform: none;}
+
           position: relative;
           top: -11px;
         }
@@ -218,7 +218,7 @@
         &_buttons {
 
           & > button {
-            line-height: 54px;
+            line-height: 53px;
             font-size: 17px;
             border-radius: 29px;
             @include w4 {
@@ -241,7 +241,7 @@
             color: $color-1;
             width: 41%;
             @include w4 {width: 48%;}
-            margin-right: 2%;
+            margin-right: 3%;
             border-radius: 30px;
             border: 1px solid #5268F1;
             font-weight: 600;
