@@ -158,7 +158,7 @@
       }
 
       .login {
-        margin-bottom: 64px;
+        margin-bottom: 62px;
         min-height: 478px;
         @include h1 {
           margin-bottom: 20px;
@@ -188,12 +188,12 @@
           flex-direction: column;
           justify-content: space-around;
           min-height: calc(100% - 70px - 56px);
-          padding: 45px 0 25px;
+          padding: 45px 0 20px;
           @include h2 {padding: 10px 0;}
 
           &_input {
 
-            margin: 19px 0;
+            margin: 19px 0 12px;
             @include h2 {margin: 5px 0;}
 
             &_label {
@@ -212,6 +212,7 @@
 
           &_input_top {
             margin-bottom: 0;
+            margin-top: 28px;
           }
         }
 
@@ -260,11 +261,10 @@
 
         display: flex;
         flex-direction: row-reverse;
-        padding-bottom: 30px;
+        padding-bottom: 32px;
         @include h1 {padding-bottom: 6px;}
-        padding-right: 10px;
+        padding-right: 14px;
         font-size: 14px;
-
         &_right {
 
           display: inline-block;
