@@ -241,7 +241,7 @@
             background-color: white;
             color: $color-1;
             width: 41%;
-            @include w4 {width: 48%;}
+            @include w4 {width: 47%;}
             margin-right: 3%;
             border-radius: 30px;
             border: 1px solid #5268F1;
