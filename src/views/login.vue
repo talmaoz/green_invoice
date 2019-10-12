@@ -123,9 +123,11 @@
 
       header {
         padding-top: 36px;
+        @include h1 {padding-top: 6px;}
         padding-right: 85px;
         @include w1 {padding-right: 20px;}
         @include w2 {padding-right: 10px;}
+        @include w4 {padding-right: 6px;}
 
         img {
           height: 34px;
@@ -147,25 +149,36 @@
           padding-left: 20px;
           margin: 0 auto;
         }
+        @include w4 {
+          min-width: 300px;
+          padding-right: 6px;
+          padding-left: 6px;
+        }
       }
 
       .login {
         margin-bottom: 64px;
         min-height: 478px;
+        @include h1 {
+          margin-bottom: 0;
+          min-height: 280px;
+        }
         max-width: 407px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
         &_title {
-          font-size: 36px;
+          font-size: 30px;
+          @include w3 {font-size: 36px;}
+          @include w4 {font-size: 28px;}
           font-weight: 800;
           color: $color-1;
           text-align: center;
           transform: scale(1.1, 1.6);
+          @include w3 {transform: none;}
           position: relative;
           top: -11px;
-          margin: 0 auto 10px;
         }
 
         &_form {
@@ -204,12 +217,17 @@
             line-height: 54px;
             font-size: 17px;
             border-radius: 29px;
+            @include w4 {
+              line-height: 34px;
+              font-size: 14px;
+            }
           }
 
           &_username_login {
             background-color: $color-1;
             color: white;
             width: 54%;
+            @include w4 {width: 48%;}
             margin-left: 2%;
             font-weight: 500;
           }
@@ -218,16 +236,18 @@
             background-color: white;
             color: $color-1;
             width: 41%;
-            margin-right: 3%;
+            @include w4 {width: 48%;}
+            margin-right: 2%;
             border-radius: 30px;
             border: 1px solid #5268F1;
             font-weight: 600;
             background-image: url('../assets/Google_G.svg');
             background-repeat: no-repeat;
             background-size: 25px auto;
+            background-position: left 18px center;
+            @include w1 {background-position: left 10px center;}
             padding-left: 40px;
             padding-right: 12px;
-            background-position: left 18px center;
           }
         }
       }
@@ -237,6 +257,7 @@
         display: flex;
         flex-direction: row-reverse;
         padding-bottom: 30px;
+        @include h1 {padding-bottom: 6px;}
         padding-right: 10px;
         font-size: 14px;
 

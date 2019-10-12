@@ -18,8 +18,20 @@
   }
 }
 
+@mixin w4 {
+  @media (max-width: #{$screen-max-width-4}) {
+    @content;
+  }
+}
+
 @mixin h1 {
   @media (max-height: #{$screen-max-height-1}) {
     @content;
   }
 }
+
+//@mixin h2 {
+//  @media (max-height: #{$screen-max-height-2}) {
+//    @content;
+//  }
+//}
