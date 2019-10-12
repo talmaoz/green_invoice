@@ -21,7 +21,7 @@
           </div>
           <div class="login_form_input">
             <p class="login_form_input_label">סיסמה</p>
-            <a class="login_form_input_info">?שכחת סיסמא</a>
+            <router-link to="/welcome" class="login_form_input_info">?שכחת סיסמה</router-link>
           </div>
         </div>
         <div class="login_buttons">
@@ -157,21 +157,25 @@
           display: flex;
           flex-direction: column;
           justify-content: space-around;
+          min-height: calc(100% - 70px - 56px);
+          padding: 45px 0px 25px;
+
           &_input {
 
             margin: 30px 0;
 
-
-
             &_label {
-
+              font-size: 20px;
             }
 
             &_info {
               display: block;
               -webkit-box-shadow: 0px -3px 0px 0px rgb(39, 72, 93);
               -moz-box-shadow: 0px -3px 0px 0px rgb(39, 72, 93);
-              box-shadow: 0px -3px 0px 0px rgb(39, 72, 93);
+              box-shadow: 0px -1px 0px 0px rgb(39, 72, 93);
+              color: $color-2;
+              font-size: 14px;
+              line-height: 45px;
             }
           }
         }
