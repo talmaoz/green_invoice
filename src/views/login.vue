@@ -118,7 +118,7 @@
       header {
         padding-top: 36px;
         padding-right: 85px;
-        @include w1 {padding-right: 30px;}
+        @include w1 {padding-right: 20px;}
         @include w2 {padding-right: 10px;}
 
         img {
@@ -133,7 +133,7 @@
         margin-right: 341px;
         min-width: 417px;
         @include w1 {
-          padding-right: 30px;
+          padding-right: 40px;
           margin-right: 0;
         }
       }
@@ -141,6 +141,7 @@
       .login {
         margin-bottom: 64px;
         min-height: 478px;
+        max-width: 407px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -151,10 +152,6 @@
           color: $color-1;
           text-align: center;
           transform: scale(1.1, 1.6);
-          -webkit-transform: scale(1.1, 1.6);
-          -moz-transform: scale(1.1, 1.6);
-          -ms-transform: scale(1.1, 1.6);
-          /*-o-transform: scale(1.1, 1.6);*/
           position: relative;
           top: -11px;
           margin: 0 auto 10px;
@@ -165,7 +162,7 @@
           flex-direction: column;
           justify-content: space-around;
           min-height: calc(100% - 70px - 56px);
-          padding: 45px 0px 25px;
+          padding: 45px 0 25px;
 
           &_input {
 
