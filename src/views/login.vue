@@ -131,6 +131,7 @@
 
         img {
           height: 34px;
+          @include w4 {height: 28px;}
           float: right;
         }
       }
@@ -160,7 +161,8 @@
         margin-bottom: 64px;
         min-height: 478px;
         @include h1 {
-          margin-bottom: 0;
+          margin-bottom: 20px;
+          margin-top: 20px;
           min-height: 280px;
         }
         max-width: 407px;
@@ -187,10 +189,12 @@
           justify-content: space-around;
           min-height: calc(100% - 70px - 56px);
           padding: 45px 0 25px;
+          @include h2 {padding: 10px 0;}
 
           &_input {
 
             margin: 19px 0;
+            @include h2 {margin: 5px 0;}
 
             &_label {
               font-size: 20px;
@@ -265,6 +269,7 @@
 
           display: inline-block;
           width: 70%;
+          @include w4 {width: 100%;}
 
           &_rights_reserved {
             display: flex;
@@ -292,6 +297,13 @@
           width: 30%;
           padding-top: 1.7em;
           text-align: left;
+          @include w4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-top: 6px;
+            padding-left: 10px;
+          }
         }
       }
     }

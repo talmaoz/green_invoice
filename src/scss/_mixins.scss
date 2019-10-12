@@ -30,8 +30,8 @@
   }
 }
 
-//@mixin h2 {
-//  @media (max-height: #{$screen-max-height-2}) {
-//    @content;
-//  }
-//}
+@mixin h2 {
+  @media (max-height: #{$screen-max-height-2}) {
+    @content;
+  }
+}
