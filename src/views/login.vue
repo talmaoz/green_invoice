@@ -194,7 +194,7 @@
           }
 
           &_input_top {
-            margin-bottom: 4px;
+            margin-bottom: 0;
           }
         }
 
