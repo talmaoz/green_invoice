@@ -73,6 +73,7 @@
 <style lang="scss" scoped>
 
   @import "../scss/_variables.scss";
+  @import "../scss/_mixins.scss";
 
   .login_page {
 
@@ -115,9 +116,10 @@
       justify-content: space-between;
 
       header {
-
         padding-top: 36px;
         padding-right: 85px;
+        @include w1 {padding-right: 30px;}
+        @include w2 {padding-right: 10px;}
 
         img {
           height: 34px;
@@ -130,6 +132,10 @@
         margin-left: 183px;
         margin-right: 341px;
         min-width: 417px;
+        @include w1 {
+          padding-right: 30px;
+          margin-right: 0;
+        }
       }
 
       .login {
@@ -172,9 +178,8 @@
 
             &_info {
               display: block;
-              -webkit-box-shadow: 0px -3px 0px 0px rgb(39, 72, 93);
-              -moz-box-shadow: 0px -3px 0px 0px rgb(39, 72, 93);
-              box-shadow: 0px -1px 0px 0px rgb(39, 72, 93);
+              box-shadow: 0px -2px 1px -2px $color-2;
+              border-top: 1px solid $color-2;;
               color: $color-2;
               font-size: 14px;
               line-height: 45px;
