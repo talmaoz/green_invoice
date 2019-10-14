@@ -15,18 +15,27 @@
       <div class="login  contained">
         <p class="login_title">התחברות לחשבונית ירוקה</p>
         <div class="login_form">
-          <div class="login_form_input login_form_input_top">
+          <div
+            class="login_form_input login_form_input_username not_selected_input"
+            @click="selected = 'username'"
+            :class="(selected === 'username')? 'selected_input' : 'not_selected_input'">
             <p class="login_form_input_label">מייל</p>
+            <input ref="usernameInput" v-model="username"/>
             <p class="login_form_input_info">כתובת המייל איתה נרשמת לחשבונית ירוקה</p>
           </div>
-          <div class="login_form_input">
+          <div
+            class="login_form_input login_form_input_password not_selected_input"
+            @click="selected = 'password'"
+            :class="(selected === 'password')? 'selected_input' : 'not_selected_input'">
             <p class="login_form_input_label">סיסמה</p>
+            <input ref="passwordInput" v-model="password"/>
             <router-link to="/welcome" class="login_form_input_info">?שכחת סיסמה</router-link>
           </div>
         </div>
         <div class="login_buttons">
           <button class="login_buttons_google_login">כניסה עם גוגל</button>
-          <button class="login_buttons_username_login">כניסה</button>
+          <button class="login_buttons_username_login" @click="toggleDisplay('username')">כניסה
+          </button>
         </div>
       </div>
 
@@ -54,7 +63,9 @@
     name: 'login',
     data() {
       return {
-        someData: 'someDataVal'
+        selected: null,
+        username: '',
+        password: ''
       };
     },
     methods: {
@@ -65,6 +76,13 @@
           // post with email and password
         }
       },
+      // toggleDisplay(inputField) {
+      //   let curRef
+      //   if (inputField === 'username') {curRef = this.$refs.usernameInput}
+      //   if (inputField === 'password') {curRef = this.$refs.passwordInput}
+      //
+      //   if (curRef.display !== 'none') {}
+      // }
     }
   };
 
@@ -91,7 +109,9 @@
 
     .left {
       width: 50%;
-      @include w3 {display: none;}
+      @include w3 {
+        display: none;
+      }
       background-color: $color-5;
       display: flex;
       flex-direction: column;
@@ -115,7 +135,9 @@
 
     .right {
       width: 50%;
-      @include w3 {width: 100%;}
+      @include w3 {
+        width: 100%;
+      }
       float: right;
       display: flex;
       flex-direction: column;
@@ -123,15 +145,25 @@
 
       header {
         padding-top: 36px;
-        @include h1 {padding-top: 6px;}
+        @include h1 {
+          padding-top: 6px;
+        }
         padding-right: 85px;
-        @include w1 {padding-right: 20px;}
-        @include w2 {padding-right: 10px;}
-        @include w4 {padding-right: 6px;}
+        @include w1 {
+          padding-right: 20px;
+        }
+        @include w2 {
+          padding-right: 10px;
+        }
+        @include w4 {
+          padding-right: 6px;
+        }
 
         img {
           height: 34px;
-          @include w4 {height: 28px;}
+          @include w4 {
+            height: 28px;
+          }
           float: right;
         }
       }
@@ -172,9 +204,13 @@
 
         &_title {
           font-size: 36px;
-          @include w4 {font-size: 28px;}
+          @include w4 {
+            font-size: 28px;
+          }
           transform: scale(1.1, 1.6);
-          @include w3 {transform: none;}
+          @include w3 {
+            transform: none;
+          }
           font-weight: 800;
           color: $color-1;
           text-align: center;
@@ -189,16 +225,23 @@
           justify-content: space-around;
           min-height: calc(100% - 70px - 56px);
           padding: 45px 0 20px;
-          @include h2 {padding: 10px 0 20px;}
+          @include h2 {
+            padding: 10px 0 20px;
+          }
 
           &_input {
-
             margin: 19px 0 12px;
-            @include h2 {margin: 5px 0;}
+            @include h2 {
+              margin: 5px 0;
+            }
 
             &_label {
               font-size: 20px;
               padding-bottom: 3px;
+            }
+
+            input {
+              border: none;
             }
 
             &_info {
@@ -210,10 +253,25 @@
             }
           }
 
-          &_input_top {
+          &_input_username {
             margin-bottom: 0;
             margin-top: 28px;
-            @include h2 {margin-top: 8px;}
+            @include h2 {
+              margin-top: 8px;
+            }
+          }
+
+        }
+
+        .not_selected_input {
+          input {
+            display: none;
+          }
+        }
+
+        .selected_input {
+          input {
+            display: block;
           }
         }
 
@@ -237,8 +295,12 @@
             background-color: $color-1;
             color: white;
             width: 54%;
-            @include w4 {width: 48%;}
-            @include h2 {width: 48%;}
+            @include w4 {
+              width: 48%;
+            }
+            @include h2 {
+              width: 48%;
+            }
             margin-left: 2%;
             font-weight: 500;
           }
@@ -247,8 +309,12 @@
             background-color: white;
             color: $color-1;
             width: 41%;
-            @include w4 {width: 47%;}
-            @include h2 {width: 47%;}
+            @include w4 {
+              width: 47%;
+            }
+            @include h2 {
+              width: 47%;
+            }
             margin-right: 3%;
             border-radius: 30px;
             border: 1px solid #5268F1;
@@ -257,7 +323,9 @@
             background-repeat: no-repeat;
             background-size: 25px auto;
             background-position: left 18px center;
-            @include w1 {background-position: left 10px center;}
+            @include w1 {
+              background-position: left 10px center;
+            }
             padding-left: 40px;
             padding-right: 12px;
           }
@@ -265,18 +333,22 @@
       }
 
       .app_footer {
-
         display: flex;
         flex-direction: row-reverse;
         padding-bottom: 32px;
-        @include h1 {padding-bottom: 6px;}
+        @include h1 {
+          padding-bottom: 6px;
+        }
         padding-right: 14px;
         font-size: 14px;
+
         &_right {
 
           display: inline-block;
           width: 70%;
-          @include w4 {width: 100%;}
+          @include w4 {
+            width: 100%;
+          }
 
           &_rights_reserved {
             display: flex;
