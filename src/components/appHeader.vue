@@ -8,14 +8,6 @@
 
   export default {
     name: 'appHeader',
-    data() {
-      return {
-        routes: [],
-        loggedUser: this.$store.getters.getLoggedUser
-      }
-    },
-    methods: {
-    },
   }
 
 </script>
