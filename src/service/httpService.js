@@ -1,7 +1,6 @@
 const BASE_URL = process.env.NODE_ENV === 'production'
   ? 'https://sandbox.d.greeninvoice.co.il/api/v1'
   : 'https://sandbox.d.greeninvoice.co.il/api/v1';
-// : '//localhost:3000/api/v1'
 
 import Axios from 'axios';
 
@@ -31,7 +30,6 @@ export const httpService = {
     return ajax(endpoint, 'GET', data);
   },
   POST(endpoint, data) {
-    console.log('data = ', data);
     return ajax(endpoint, 'POST', data);
   },
   PUT(endpoint, data) {

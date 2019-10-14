@@ -59,7 +59,6 @@
 
         <router-link to="/welcome" class="app_footer_left">להצטרפות חינם</router-link>
 
-
       </footer>
     </div>
 
@@ -267,7 +266,7 @@
           flex-direction: column;
           justify-content: space-around;
           min-height: calc(100% - 70px - 56px);
-          padding: 52px 0 13px;
+          padding: 52px 0 23px;
           @include h2 {
             padding: 10px 0 20px;
           }
