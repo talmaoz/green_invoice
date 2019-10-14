@@ -18,17 +18,24 @@
           <div
             class="login_form_input login_form_input_email not_selected_input"
             @click="inputSelected('email')"
-            :class="(selected === 'email')? 'selected_input' : 'not_selected_input'">
+            :class="(email.selected)? 'selected_input' : 'not_selected_input'">
             <p class="login_form_input_label">מייל</p>
-            <input ref="emailInput" v-model="email"/>
+            <input
+              ref="email"
+              v-model="email.value"
+              @blur="handleBlur('email')"/>
             <p class="login_form_input_info">כתובת המייל איתה נרשמת לחשבונית ירוקה</p>
           </div>
           <div
             class="login_form_input login_form_input_password not_selected_input"
             @click="inputSelected('password')"
-            :class="(selected === 'password')? 'selected_input' : 'not_selected_input'">
+            :class="(password.selected)? 'selected_input' : 'not_selected_input'">
             <p class="login_form_input_label">סיסמה</p>
-            <input ref="passwordInput" v-model="password"/>
+            <input
+              ref="password"
+              v-model="password.value"
+              @blur="handleBlur('password')"
+              type="password" maxlength="16"/>
             <router-link to="/welcome" class="login_form_input_info">?שכחת סיסמה</router-link>
           </div>
         </div>
@@ -62,20 +69,37 @@
     name: 'login',
     data() {
       return {
-        selected: null,
-        email: '',
-        password: ''
+        email: {
+          value: '',
+          selected: false,
+          error: null,
+          info: ''
+        },
+        password: {
+          value: '',
+          selected: false,
+          error: null,
+          info: ''
+        }
       };
     },
     methods: {
       login() {
-        this.$store.dispatch('login', {email: this.email, password: this.password})
+        this.$store.dispatch('login', {email: this.email.value, password: this.password.value})
       },
 
       inputSelected(inputField) {
-        this.selected = inputField;
-        if (this.selected === 'email') this.$nextTick(() => {this.$refs.emailInput.focus()})
-        if (this.selected === 'password') this.$nextTick(() => {this.$refs.passwordInput.focus()})
+        this[inputField].selected = true
+        this.$nextTick(() => {this.$refs[inputField].focus()})
+      },
+
+      handleBlur(inputField) {
+        let regExp
+        if (inputField === 'email') regExp = /\S+@\S+\.\S+/
+        if (inputField === 'password') regExp = /\S{8,16}/
+        if (regExp.test(this[inputField].value)) {
+          console.log(this[inputField].value)
+        }
       }
     }
   };
@@ -294,8 +318,6 @@
           p, a {
             color: $color-2;
           }
-
-
         }
 
         .selected_input {
