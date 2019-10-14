@@ -189,7 +189,7 @@
           justify-content: space-around;
           min-height: calc(100% - 70px - 56px);
           padding: 45px 0 20px;
-          @include h2 {padding: 10px 0;}
+          @include h2 {padding: 10px 0 20px;}
 
           &_input {
 
@@ -213,6 +213,7 @@
           &_input_top {
             margin-bottom: 0;
             margin-top: 28px;
+            @include h2 {margin-top: 8px;}
           }
         }
 
@@ -226,6 +227,10 @@
               line-height: 34px;
               font-size: 14px;
             }
+            @include h2 {
+              line-height: 34px;
+              font-size: 14px;
+            }
           }
 
           &_username_login {
@@ -233,6 +238,7 @@
             color: white;
             width: 54%;
             @include w4 {width: 48%;}
+            @include h2 {width: 48%;}
             margin-left: 2%;
             font-weight: 500;
           }
@@ -242,6 +248,7 @@
             color: $color-1;
             width: 41%;
             @include w4 {width: 47%;}
+            @include h2 {width: 47%;}
             margin-right: 3%;
             border-radius: 30px;
             border: 1px solid #5268F1;
