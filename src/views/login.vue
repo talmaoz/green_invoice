@@ -103,19 +103,17 @@
       handleBlur(inputField) {
         this[inputField].active = false;
 
-        const validate = getValidationObj(inputField)
-
-        if (!validate.regExp.test(this[inputField].value)) {
-          this[inputField].error = validate.error
-        } else {
-          this[inputField].error = null;
-        }
+        const validate = getValidationObj(inputField);
+        this[inputField].error =
+          (!validate.regExp.test(this[inputField].value))
+          ? validate.error
+          : null;
       },
 
       clickedAndOrError(inputField) {
-        let addClass = (this[inputField].active ||this[inputField].value.length ) ? 'active' : '';
-        addClass += (this[inputField].error)? ' input_error': '';
-        addClass += (this[inputField].active && !this[inputField].error)? ' input_active' : '';
+        let addClass = (this[inputField].active || this[inputField].value.length)? 'display_input' : '';
+        addClass += (this[inputField].error) ? ' input_error' : '';
+        addClass += (this[inputField].active && !this[inputField].error) ? ' input_active' : '';
         return addClass;
       },
 
@@ -329,7 +327,7 @@
 
         }
 
-        .active {
+        .display_input {
           .login_form_input_label {
             bottom: 26px;
             font-size: 0.95rem;
@@ -366,9 +364,9 @@
             color: $color-4;
           }
 
-           .login_form_input_info {
-             border-top: 1px solid $color-4;
-           }
+          .login_form_input_info {
+            border-top: 1px solid $color-4;
+          }
 
           input {
             display: block;
