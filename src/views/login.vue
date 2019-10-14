@@ -8,9 +8,8 @@
     </div>
 
     <div class="right">
-      <header>
-        <img :src="require('../assets/green_logo.svg')" alt="Green Invoice Logo"/>
-      </header>
+
+      <app_header></app_header>
 
       <div class="login  contained">
         <p class="login_title">התחברות לחשבונית ירוקה</p>
@@ -67,9 +66,11 @@
 
 <script>
   import { getValidationObj } from '../service/loginService';
+  import app_header from '../components/appHeader';
 
   export default {
     name: 'login',
+
     data() {
       return {
         email: {
@@ -125,13 +126,13 @@
         const info = 'כתובת המייל איתה נרשמת לחשבונית ירוקה';
         return (this.email.error) ? this.email.error : info;
       }
-    }
+    },
+    components: {app_header}
   };
 
 </script>
 
 <style lang="scss" scoped>
-
   @import "../scss/_variables.scss";
   @import "../scss/_mixins.scss";
 
@@ -183,33 +184,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
-      header {
-        padding-top: 36px;
-        @include h1 {
-          padding-top: 6px;
-        }
-        padding-right: 85px;
-        @include w1 {
-          padding-right: 20px;
-        }
-        @include w2 {
-          padding-right: 10px;
-        }
-        @include w4 {
-          padding-right: 6px;
-        }
-
-        img {
-          height: 34px;
-          width: 223px;
-          @include w4 {
-            height: 28px;
-            width: 184px;
-          }
-          float: right;
-        }
-      }
 
       .contained {
         margin-left: 183px;
