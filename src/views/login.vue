@@ -223,12 +223,13 @@
           flex-direction: column;
           justify-content: space-around;
           min-height: calc(100% - 70px - 56px);
-          padding: 45px 0 20px;
+          padding: 52px 0 13px;
           @include h2 {
             padding: 10px 0 20px;
           }
 
           &_input {
+            min-height: 90px;
             position: relative;
             margin: 19px 0 12px;
             @include h2 {
@@ -267,12 +268,13 @@
             }
           }
 
+          &_input_password {
+            /*margin-bottom: 10px;*/
+          }
+
           &_input_username {
             margin-bottom: 0;
             margin-top: 28px;
-            @include h2 {
-              margin-top: 8px;
-            }
           }
 
         }
