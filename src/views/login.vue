@@ -67,19 +67,19 @@
 </template>
 
 <script>
+  import { getValidationObj } from '../service/loginService';
+
   export default {
     name: 'login',
     data() {
       return {
         email: {
           value: '',
-          clicked: false,
           active: false,
           error: null
         },
         password: {
           value: '',
-          clicked: false,
           active: false,
           error: null
         }
@@ -94,40 +94,31 @@
       },
 
       inputSelected(inputField) {
-        this[inputField].clicked = true;
+        this[inputField].active = true;
         this.$nextTick(() => {
           this.$refs[inputField].focus();
         });
       },
 
       handleBlur(inputField) {
-        if (!this[inputField].value.length) this[inputField].clicked = false;
-        if (inputField === 'email') {
-          if (!/\S+@\S+\.\S+/.test(this[inputField].value)) {
-            this[inputField].error = 'כתובת המייל אינה תקינה';
-          } else {
-            this[inputField].error = null;
-          }
-        }
-        if (inputField === 'password') {
-          if (!/\S{8,16}/.test(this[inputField].value)) {
-            this[inputField].error = 'יש להזין 8-16 תווים';
-          } else {
-            this[inputField].error = null;
-          }
+        this[inputField].active = false;
 
-        }
+        const validate = getValidationObj(inputField)
 
+        if (!validate.regExp.test(this[inputField].value)) {
+          this[inputField].error = validate.error
+        } else {
+          this[inputField].error = null;
+        }
       },
+
       clickedAndOrError(inputField) {
-        let addClass = (this[inputField].clicked) ? 'clicked_input' : '';
-
-        addClass += (this[inputField].clicked && this[inputField].value.length) ? ' input_error' : ' no_input_error';
-
-        addClass += (this[inputField].clicked && this[inputField].value.length) ? ' input_error' : ' no_input_error';
-        addClass += (this[inputField].error) ? ' input_error' : ' no_input_error';
+        let addClass = (this[inputField].active ||this[inputField].value.length ) ? 'active' : '';
+        addClass += (this[inputField].error)? ' input_error': '';
+        addClass += (this[inputField].active && !this[inputField].error)? ' input_active' : '';
         return addClass;
       },
+
       handleFocus(inputField) {
         this[inputField].error = null;
       }
@@ -338,12 +329,34 @@
 
         }
 
-        //.input_error {
-        //  .login_form_input_info {
-        //    border-top: 1px solid red;
-        //    color: red;
-        //  }
-        //}
+        .active {
+          .login_form_input_label {
+            bottom: 26px;
+            font-size: 0.95rem;
+          }
+
+          input {
+            display: block;
+          }
+
+        }
+
+        .input_active {
+          .login_form_input_label {
+            color: $color-4;
+          }
+
+          .login_form_input_info {
+            border-top: 1px solid $color-4;
+          }
+        }
+
+        .input_error {
+          .login_form_input_info {
+            border-top: 1px solid red;
+            color: red;
+          }
+        }
 
         .clicked_input {
 
@@ -362,14 +375,6 @@
           }
 
         }
-
-        // .no_input_error {
-        //   .login_form_input_info {
-        //     border-top: 1px solid $color-2;
-        //     color: $color-2;
-        //   }
-        // }
-
 
         &_buttons {
 
