@@ -17,7 +17,7 @@
           <div
             class="login_form_input login_form_input_email"
             @click="inputSelected('email')"
-            :class="clickedAndOrError('email')">
+            :class="setInputClass('email')">
             <p class="login_form_input_label">מייל</p>
             <input
               ref="email"
@@ -29,7 +29,7 @@
           <div
             class="login_form_input login_form_input_password"
             @click="inputSelected('password')"
-            :class="clickedAndOrError('password')">
+            :class="setInputClass('password')">
             <p class="login_form_input_label">סיסמה</p>
             <input
               ref="password"
@@ -102,7 +102,6 @@
 
       handleBlur(inputField) {
         this[inputField].active = false;
-
         const validate = getValidationObj(inputField);
         this[inputField].error =
           (!validate.regExp.test(this[inputField].value))
@@ -110,7 +109,7 @@
           : null;
       },
 
-      clickedAndOrError(inputField) {
+      setInputClass(inputField) {
         let addClass = (this[inputField].active || this[inputField].value.length)? 'display_input' : '';
         addClass += (this[inputField].error) ? ' input_error' : '';
         addClass += (this[inputField].active && !this[inputField].error) ? ' input_active' : '';
