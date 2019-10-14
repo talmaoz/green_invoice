@@ -17,7 +17,7 @@
         <div class="login_form">
           <div
             class="login_form_input login_form_input_username not_selected_input"
-            @click="selected = 'username'"
+            @click="inputSelected('username')"
             :class="(selected === 'username')? 'selected_input' : 'not_selected_input'">
             <p class="login_form_input_label">מייל</p>
             <input ref="usernameInput" v-model="username"/>
@@ -25,7 +25,7 @@
           </div>
           <div
             class="login_form_input login_form_input_password not_selected_input"
-            @click="selected = 'password'"
+            @click="inputSelected('password')"
             :class="(selected === 'password')? 'selected_input' : 'not_selected_input'">
             <p class="login_form_input_label">סיסמה</p>
             <input ref="passwordInput" v-model="password"/>
@@ -76,13 +76,12 @@
           // post with email and password
         }
       },
-      // toggleDisplay(inputField) {
-      //   let curRef
-      //   if (inputField === 'username') {curRef = this.$refs.usernameInput}
-      //   if (inputField === 'password') {curRef = this.$refs.passwordInput}
-      //
-      //   if (curRef.display !== 'none') {}
-      // }
+
+      inputSelected(inputField) {
+        this.selected = inputField;
+        if (this.selected === 'username') this.$nextTick(() => {this.$refs.usernameInput.focus()})
+        if (this.selected === 'password') this.$nextTick(() => {this.$refs.passwordInput.focus()})
+      }
     }
   };
 
@@ -250,6 +249,7 @@
               position: absolute;
               direction: rtl;
               font-family: almoni-neue-dl, arial, sans-serif;
+              font-size: 17px;
               top: -6px;
               right: 0;
             }
