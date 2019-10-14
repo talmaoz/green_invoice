@@ -230,6 +230,7 @@
           }
 
           &_input {
+            position: relative;
             margin: 19px 0 12px;
             @include h2 {
               margin: 5px 0;
@@ -241,7 +242,14 @@
             }
 
             input {
-              border: none;
+              /*border: none;*/
+              display: block;
+              float: right;
+              position: absolute;
+              direction: rtl;
+              font-family: almoni-neue-dl, arial, sans-serif;
+              top: 2px;
+              right: 0;
             }
 
             &_info {
