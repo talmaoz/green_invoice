@@ -258,7 +258,7 @@
             }
 
             &_label {
-              line-height: 20px;
+              line-height: 37px;
               font-size: 20px;
               padding-bottom: 3px;
               z-index: 100;
@@ -272,7 +272,7 @@
               direction: rtl;
               font-family: almoni-neue-dl, arial, sans-serif;
               font-size: 17px;
-              top: -6px;
+              top: 6px;
               right: 0;
             }
 
@@ -285,7 +285,7 @@
               border-top: 1px solid $color-2;
               color: $color-2;
               font-size: 14px;
-              line-height: 45px;
+              line-height: 28px;
             }
           }
 
