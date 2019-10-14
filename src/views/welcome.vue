@@ -1,21 +1,18 @@
 <template>
   <section class="welcome">
     WELCOME PAGE
+    <button @click="logout()">יציאה</button>
   </section>
+
 </template>
 
 <script>
   export default {
     name: 'welcomePage',
-    data() {
-      return {
-        someData: 'someDataVal'
-      }
-    },
     methods: {
-      method1(param1) {
-          // Do stuff
-      },
+      logout() {
+        this.$store.dispatch('logout')
+      }
     }
   }
 

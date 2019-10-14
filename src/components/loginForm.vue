@@ -1,7 +1,7 @@
 <template>
   <section class="login">
     <p class="login_title">התחברות לחשבונית ירוקה</p>
-    <div class="login_form">
+    <form @submit.prevent="" class="login_form">
       <div
         class="login_form_input login_form_input_email"
         @click="inputSelected('email')"
@@ -9,6 +9,7 @@
         <p class="login_form_input_label">מייל</p>
         <input
           ref="email"
+          @keyup.enter="inputSelected('password')"
           v-model="email.value"
           @focus="handleFocus('email')"
           @blur="handleBlur('email')"/>
@@ -21,16 +22,18 @@
         <p class="login_form_input_label">סיסמה</p>
         <input
           ref="password"
+          @keyup.enter="$refs.login.click()"
           v-model="password.value"
           @focus="handleFocus('password')"
           @blur="handleBlur('password')"
           type="password" maxlength="16"/>
-        <router-link to="/welcome" class="login_form_input_info">?שכחת סיסמה</router-link>
+        <p v-if="password.error" class="login_form_input_info">{{password.error}}</p>
+        <router-link to="/welcome">?שכחת סיסמה</router-link>
       </div>
-    </div>
+    </form>
     <div class="login_buttons">
       <button class="login_buttons_google_login">כניסה עם גוגל</button>
-      <button class="login_buttons_email_login" @click="login()">כניסה</button>
+      <button class="login_buttons_email_login" ref="login" @click="login()">כניסה</button>
     </div>
   </section>
 </template>
@@ -165,6 +168,7 @@
         }
 
         input {
+          width: 100%;
           border: none;
           display: none;
           float: right;
@@ -180,12 +184,13 @@
           outline: none;
         }
 
-        &_info {
+        &_info, a {
           display: block;
           border-top: 1px solid $color-2;
           color: $color-2;
           font-size: 14px;
           line-height: 28px;
+          transition: all 300ms;
         }
       }
 
@@ -226,6 +231,12 @@
       .login_form_input_info {
         border-top: 1px solid red;
         color: red;
+      }
+      a{
+        border-top: none;
+        position: absolute;
+        bottom: 0;
+        right: 0;
       }
     }
 

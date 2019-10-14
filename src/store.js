@@ -1,13 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { login } from './service/loginService';
+import { loginPost } from './service/loginService';
+import router from './router';
 
-Vue.use(Vuex)
+const getDefaultState = () => {
+  return {
+    loggedUser: null
+  }
+}
+
+Vue.use(Vuex);
 const store = new Vuex.Store({
   strict: true,
-  state: {
-    loggedUser: null
-  },
+  state: getDefaultState(),
   getters: {
     getLoggedUser(state) {
       return state.loggedUser;
@@ -16,16 +21,26 @@ const store = new Vuex.Store({
   mutations: {
     setLoggedUser(state, user) {
       state.loggedUser = user;
+    },
+    removeLoggedUser(state) {
+      Object.assign(state, getDefaultState())
     }
   },
+
   actions: {
-    login(context,  credentials ) {
-      login(credentials)
-        .then((user) => context.commit('setLoggedUser', user))
-        .catch(err => alert(err));
+    async login({commit}, credentials) {
+      try {
+        const user = await loginPost(credentials);
+        commit('setLoggedUser', user);
+        router.push('/welcome').then()
+      } catch (err) {
+        console.log(err);
+        alert('מייל או סיסמה אינם נכונים.');
+      }
     },
-    logout(context) {
-      context.commit('setLoggedUser', null)
+
+    logout({commit}) {
+      commit('removeLoggedUser')
     }
   }
 });

@@ -1,8 +1,8 @@
 import store from '@/store'
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from './views/login.vue'
-import welcome from './views/welcome.vue'
+import login from './views/login'
+import welcome from './views/welcome'
 import accountDetails from './views/accountDetails'
 
 Vue.use(Router)
@@ -51,7 +51,8 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  const currentUser = store.getters.loggedUser;
+  const currentUser = store.getters.getLoggedUser;
+  console.log('currentUser=',currentUser)
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   if (to.name === 'login' && currentUser) next('/welcome')
   else if (requiresAuth && !currentUser) next('/login')
