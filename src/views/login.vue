@@ -237,24 +237,30 @@
             }
 
             &_label {
+              line-height: 20px;
               font-size: 20px;
               padding-bottom: 3px;
+              z-index: 100;
             }
 
             input {
-              /*border: none;*/
+              border: none;
               display: block;
               float: right;
               position: absolute;
               direction: rtl;
               font-family: almoni-neue-dl, arial, sans-serif;
-              top: 2px;
+              top: -6px;
               right: 0;
+            }
+
+            input:focus {
+              outline: none;
             }
 
             &_info {
               display: block;
-              border-top: 1px solid $color-2;;
+              border-top: 1px solid $color-2;
               color: $color-2;
               font-size: 14px;
               line-height: 45px;
@@ -272,14 +278,47 @@
         }
 
         .not_selected_input {
+
+          .login_form_input_label {
+            position: relative;
+            bottom: 0;
+          }
+
+          .login_form_input_info {
+            border-top: 1px solid $color-2;
+          }
+
           input {
             display: none;
           }
+
+          p, a {
+            color: $color-2;
+          }
+
+
         }
 
         .selected_input {
+
+          .login_form_input_label {
+            position: relative;
+            bottom: 26px;
+            font-size: 0.95rem;
+            /*transform: scale(0.9);*/
+            transition: all 0.5s;
+          }
+
+          .login_form_input_info {
+            border-top: 1px solid $color-4;
+          }
+
           input {
             display: block;
+          }
+
+          p, a {
+            color: $color-4;
           }
         }
 
@@ -301,7 +340,7 @@
 
           &_username_login {
             background-color: $color-1;
-            color: white;
+            color: $color-3;
             width: 54%;
             @include w4 {
               width: 48%;
