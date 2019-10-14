@@ -16,24 +16,26 @@
         <p class="login_title">התחברות לחשבונית ירוקה</p>
         <div class="login_form">
           <div
-            class="login_form_input login_form_input_email not_selected_input"
+            class="login_form_input login_form_input_email"
             @click="inputSelected('email')"
-            :class="(email.selected)? 'selected_input' : 'not_selected_input'">
+            :class="clickedAndOrError('email')">
             <p class="login_form_input_label">מייל</p>
             <input
               ref="email"
               v-model="email.value"
+              @focus="handleFocus('email')"
               @blur="handleBlur('email')"/>
-            <p class="login_form_input_info">כתובת המייל איתה נרשמת לחשבונית ירוקה</p>
+            <p class="login_form_input_info">{{emailInfo}}</p>
           </div>
           <div
-            class="login_form_input login_form_input_password not_selected_input"
+            class="login_form_input login_form_input_password"
             @click="inputSelected('password')"
-            :class="(password.selected)? 'selected_input' : 'not_selected_input'">
+            :class="clickedAndOrError('password')">
             <p class="login_form_input_label">סיסמה</p>
             <input
               ref="password"
               v-model="password.value"
+              @focus="handleFocus('password')"
               @blur="handleBlur('password')"
               type="password" maxlength="16"/>
             <router-link to="/welcome" class="login_form_input_info">?שכחת סיסמה</router-link>
@@ -71,35 +73,69 @@
       return {
         email: {
           value: '',
-          selected: false,
-          error: null,
-          info: ''
+          clicked: false,
+          active: false,
+          error: null
         },
         password: {
           value: '',
-          selected: false,
-          error: null,
-          info: ''
+          clicked: false,
+          active: false,
+          error: null
         }
       };
     },
     methods: {
       login() {
-        this.$store.dispatch('login', {email: this.email.value, password: this.password.value})
+        this.$store.dispatch('login', {
+          email: this.email.value,
+          password: this.password.value
+        });
       },
 
       inputSelected(inputField) {
-        this[inputField].selected = true
-        this.$nextTick(() => {this.$refs[inputField].focus()})
+        this[inputField].clicked = true;
+        this.$nextTick(() => {
+          this.$refs[inputField].focus();
+        });
       },
 
       handleBlur(inputField) {
-        let regExp
-        if (inputField === 'email') regExp = /\S+@\S+\.\S+/
-        if (inputField === 'password') regExp = /\S{8,16}/
-        if (regExp.test(this[inputField].value)) {
-          console.log(this[inputField].value)
+        if (!this[inputField].value.length) this[inputField].clicked = false;
+        if (inputField === 'email') {
+          if (!/\S+@\S+\.\S+/.test(this[inputField].value)) {
+            this[inputField].error = 'כתובת המייל אינה תקינה';
+          } else {
+            this[inputField].error = null;
+          }
         }
+        if (inputField === 'password') {
+          if (!/\S{8,16}/.test(this[inputField].value)) {
+            this[inputField].error = 'יש להזין 8-16 תווים';
+          } else {
+            this[inputField].error = null;
+          }
+
+        }
+
+      },
+      clickedAndOrError(inputField) {
+        let addClass = (this[inputField].clicked) ? 'clicked_input' : '';
+
+        addClass += (this[inputField].clicked && this[inputField].value.length) ? ' input_error' : ' no_input_error';
+
+        addClass += (this[inputField].clicked && this[inputField].value.length) ? ' input_error' : ' no_input_error';
+        addClass += (this[inputField].error) ? ' input_error' : ' no_input_error';
+        return addClass;
+      },
+      handleFocus(inputField) {
+        this[inputField].error = null;
+      }
+    },
+    computed: {
+      emailInfo() {
+        const info = 'כתובת המייל איתה נרשמת לחשבונית ירוקה';
+        return (this.email.error) ? this.email.error : info;
       }
     }
   };
@@ -112,7 +148,6 @@
   @import "../scss/_mixins.scss";
 
   .login_page {
-
     width: 100%;
     height: 100%;
 
@@ -189,7 +224,6 @@
       }
 
       .contained {
-        /*padding-right: 10px;*/
         margin-left: 183px;
         margin-right: 341px;
         min-width: 417px;
@@ -262,11 +296,15 @@
               font-size: 20px;
               padding-bottom: 3px;
               z-index: 100;
+              transition: all 300ms;
+              color: $color-2;
+              position: relative;
+              bottom: 0;
             }
 
             input {
               border: none;
-              display: block;
+              display: none;
               float: right;
               position: absolute;
               direction: rtl;
@@ -300,47 +338,38 @@
 
         }
 
-        .not_selected_input {
+        //.input_error {
+        //  .login_form_input_info {
+        //    border-top: 1px solid red;
+        //    color: red;
+        //  }
+        //}
+
+        .clicked_input {
 
           .login_form_input_label {
-            position: relative;
-            bottom: 0;
-          }
-
-          .login_form_input_info {
-            border-top: 1px solid $color-2;
-          }
-
-          input {
-            display: none;
-          }
-
-          p, a {
-            color: $color-2;
-          }
-        }
-
-        .selected_input {
-
-          .login_form_input_label {
-            position: relative;
             bottom: 26px;
             font-size: 0.95rem;
-            transition: all 300ms;
+            color: $color-4;
           }
 
-          .login_form_input_info {
-            border-top: 1px solid $color-4;
-          }
+           .login_form_input_info {
+             border-top: 1px solid $color-4;
+           }
 
           input {
             display: block;
           }
 
-          p, a {
-            color: $color-4;
-          }
         }
+
+        // .no_input_error {
+        //   .login_form_input_info {
+        //     border-top: 1px solid $color-2;
+        //     color: $color-2;
+        //   }
+        // }
+
 
         &_buttons {
 
