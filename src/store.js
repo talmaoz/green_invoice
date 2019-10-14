@@ -19,7 +19,7 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    login(context, { credentials }) {
+    login(context,  credentials ) {
       login(credentials)
         .then((user) => context.commit('setLoggedUser', user))
         .catch(err => alert(err));

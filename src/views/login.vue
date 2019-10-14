@@ -16,11 +16,11 @@
         <p class="login_title">התחברות לחשבונית ירוקה</p>
         <div class="login_form">
           <div
-            class="login_form_input login_form_input_username not_selected_input"
-            @click="inputSelected('username')"
-            :class="(selected === 'username')? 'selected_input' : 'not_selected_input'">
+            class="login_form_input login_form_input_email not_selected_input"
+            @click="inputSelected('email')"
+            :class="(selected === 'email')? 'selected_input' : 'not_selected_input'">
             <p class="login_form_input_label">מייל</p>
-            <input ref="usernameInput" v-model="username"/>
+            <input ref="emailInput" v-model="email"/>
             <p class="login_form_input_info">כתובת המייל איתה נרשמת לחשבונית ירוקה</p>
           </div>
           <div
@@ -34,8 +34,7 @@
         </div>
         <div class="login_buttons">
           <button class="login_buttons_google_login">כניסה עם גוגל</button>
-          <button class="login_buttons_username_login" @click="toggleDisplay('username')">כניסה
-          </button>
+          <button class="login_buttons_email_login" @click="login()">כניסה</button>
         </div>
       </div>
 
@@ -64,22 +63,18 @@
     data() {
       return {
         selected: null,
-        username: '',
+        email: '',
         password: ''
       };
     },
     methods: {
-      login(provider) {
-        if (provider === 'google') {
-          // Google login
-        } else {
-          // post with email and password
-        }
+      login() {
+        this.$store.dispatch('login', {email: this.email, password: this.password})
       },
 
       inputSelected(inputField) {
         this.selected = inputField;
-        if (this.selected === 'username') this.$nextTick(() => {this.$refs.usernameInput.focus()})
+        if (this.selected === 'email') this.$nextTick(() => {this.$refs.emailInput.focus()})
         if (this.selected === 'password') this.$nextTick(() => {this.$refs.passwordInput.focus()})
       }
     }
@@ -160,8 +155,10 @@
 
         img {
           height: 34px;
+          width: 223px;
           @include w4 {
             height: 28px;
+            width: 184px;
           }
           float: right;
         }
@@ -272,7 +269,7 @@
             /*margin-bottom: 10px;*/
           }
 
-          &_input_username {
+          &_input_email {
             margin-bottom: 0;
             margin-top: 28px;
           }
@@ -307,8 +304,7 @@
             position: relative;
             bottom: 26px;
             font-size: 0.95rem;
-            /*transform: scale(0.9);*/
-            transition: all 0.5s;
+            transition: all 300ms;
           }
 
           .login_form_input_info {
@@ -340,7 +336,7 @@
             }
           }
 
-          &_username_login {
+          &_email_login {
             background-color: $color-1;
             color: $color-3;
             width: 54%;
@@ -390,6 +386,7 @@
         }
         padding-right: 14px;
         font-size: 14px;
+        font-weight: 400;
 
         &_right {
 

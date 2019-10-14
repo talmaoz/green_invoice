@@ -1,3 +1,7 @@
+import {httpService} from './httpService'
+
 export function login (credentials) {
-  // post
+  return httpService.POST('/account/login', credentials)
 }
+
+
