@@ -27,8 +27,19 @@
           @focus="handleFocus('password')"
           @blur="handleBlur('password')"
           type="password" maxlength="16"/>
-        <p v-if="password.error" class="login_form_input_info">{{password.error}}</p>
-        <router-link to="/welcome">?שכחת סיסמה</router-link>
+        <div class="login_form_input_info">
+          <div class="my_cont" :class="(password.error)? 'display_password_err': ''">
+            <p
+              class="password_err_msg">
+              יש להזין 8-16 תווים
+            </p>
+            <router-link
+              to="/welcome"
+
+              class="forgot_password">?שכחת סיסמה
+            </router-link>
+          </div>
+        </div>
       </div>
     </form>
     <div class="login_buttons">
@@ -83,7 +94,7 @@
       },
 
       setInputClass(inputField) {
-        let addClass = (this[inputField].active || this[inputField].value.length)? 'display_input' : '';
+        let addClass = (this[inputField].active || this[inputField].value.length) ? 'display_input' : '';
         addClass += (this[inputField].error) ? ' input_error' : '';
         addClass += (this[inputField].active && !this[inputField].error) ? ' input_active' : '';
         return addClass;
@@ -99,7 +110,7 @@
         return (this.email.error) ? this.email.error : info;
       }
     },
-  }
+  };
 
 </script>
 
@@ -161,10 +172,11 @@
           font-size: 20px;
           padding-bottom: 3px;
           z-index: 100;
-          transition: all 300ms;
+          transition: all 1500ms;
           color: $color-2;
           position: relative;
           bottom: 0;
+          background-color: white;
         }
 
         input {
@@ -178,20 +190,50 @@
           font-size: 17px;
           top: 6px;
           right: 0;
+          background-color: white;
         }
 
         input:focus {
           outline: none;
         }
 
+        &_info {
+          border-top: 1px solid $color-2;
+        }
+
+        .my_cont {
+          position: relative;
+          top: -28px;
+          z-index: -5;
+          transition: all 1500ms;
+        }
+
+        .display_password_err {
+          top: -8px;
+          transition: all 1500ms;
+        }
+
         &_info, a {
           display: block;
-          border-top: 1px solid $color-2;
           color: $color-2;
           font-size: 14px;
           line-height: 28px;
-          transition: all 300ms;
+          transition: all 1500ms;
         }
+
+        // .password_err_msg {
+        //   /*opacity: 0;*/
+        //   position: relative;
+        //   top: 0px;
+        //   right: 0;
+        //   z-index: -5;
+        // }
+
+        // forgot_password {
+        //  position: relative;
+        //  top: -1px;
+        //  right: 0;
+        //
       }
 
       &_input_password {
@@ -232,12 +274,18 @@
         border-top: 1px solid red;
         color: red;
       }
-      a{
-        border-top: none;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-      }
+
+      //.login_form_input_info a {
+      //  border-top: none;
+      //  position: absolute;
+      //  bottom: 0;
+      //  right: 0;
+      //}
+
+      // .password_err_msg {
+      //   opacity: 1;
+      //   top: 28px;
+      // }
     }
 
     .clicked_input {
