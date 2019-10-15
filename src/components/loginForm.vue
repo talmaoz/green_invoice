@@ -124,7 +124,6 @@
         addClass += (this[inputField].active && !this[inputField].error) ? ' input_active' : '';
         return addClass;
       },
-
     },
   };
 

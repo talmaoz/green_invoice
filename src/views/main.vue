@@ -39,11 +39,6 @@
       };
     },
     methods: {
-
-      logout() {
-        this.$store.dispatch('logout');
-      },
-
       getNavRoutes() {
         let navRoutes;
         this.$router.options.routes.forEach(route => {
@@ -78,6 +73,7 @@
       @include w3 {padding: 10px 20px;}
       @include w4 {padding: 10px 10px;}
       position: fixed;
+      z-index: 100;
 
       .flex_column {
         display: flex;

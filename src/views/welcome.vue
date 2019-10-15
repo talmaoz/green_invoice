@@ -13,7 +13,6 @@
     </div>
 
 
-
   </section>
 </template>
 
@@ -26,8 +25,8 @@
       };
     },
     methods: {
-      method1(param1) {
-        // Do stuff
+      logout() {
+        // this.$store.dispatch('logout');
       },
     },
 
@@ -39,6 +38,10 @@
 </script>
 
 <style lang="scss" scoped>
+
+  @import "../scss/_variables.scss";
+  @import "../scss/_mixins.scss";
+
   .welcome_container {
     background-color: white;
     height: 200px;
@@ -52,6 +55,18 @@
     p {
       margin: 5px;
       text-align: center;
+    }
+
+    button {
+      margin: 0 auto;
+      background-color: white;
+      color: $color-1;
+      border: 1px solid $color-1;
+      border-radius: 30px;
+      font-weight: 600;
+      line-height: 30px;
+      font-size: 17px;
+      width: 120px;
     }
   }
 </style>
