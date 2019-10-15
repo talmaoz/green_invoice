@@ -4,12 +4,12 @@
     <form @submit.prevent="" class="login_form">
       <div
         class="login_form_input login_form_input_email"
-        @click="inputSelected('email')"
+        @click="handleFocus('email')"
         :class="setInputClass('email')">
         <p class="login_form_input_label">מייל</p>
         <input
           ref="email"
-          @keyup.enter="inputSelected('password')"
+          @keyup.enter="handleFocus('password')"
           v-model="email.value"
           @focus="handleFocus('email')"
           @blur="handleBlur('email')"/>
@@ -32,7 +32,7 @@
 
       <div
         class="login_form_input"
-        @click="inputSelected('password')"
+        @click="handleFocus('password')"
         :class="setInputClass('password')">
         <p class="login_form_input_label">סיסמה</p>
         <input
@@ -94,15 +94,12 @@
         });
       },
 
-      inputSelected(inputField) {
+      handleFocus(inputField) {
+        this[inputField].error = null;
         this[inputField].active = true;
         this.$nextTick(() => {
           this.$refs[inputField].focus();
         });
-      },
-
-      handleFocus(inputField) {
-        this[inputField].error = null;
       },
 
       handleBlur(inputField) {
