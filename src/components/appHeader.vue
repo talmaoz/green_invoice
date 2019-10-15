@@ -33,6 +33,9 @@
       padding-right: 6px;
     }
 
+    @include h2 {
+      margin-bottom: 20px;
+    }
     img {
       height: 34px;
       width: 223px;

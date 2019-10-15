@@ -33,6 +33,7 @@
     padding-bottom: 32px;
     @include h1 {
       padding-bottom: 6px;
+      margin-top: 20px !important;
     }
     padding-right: 14px;
     font-size: 14px;
