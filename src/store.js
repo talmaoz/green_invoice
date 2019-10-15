@@ -2,6 +2,13 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { loginPost } from './service/loginService';
 import router from './router';
+import VuexPersist from 'vuex-persist'
+
+const vuexPersist = new VuexPersist({
+  key: 'green_invoice',
+  storage: window.localStorage
+})
+Vue.use(Vuex);
 
 const getDefaultState = () => {
   return {
@@ -9,8 +16,8 @@ const getDefaultState = () => {
   }
 }
 
-Vue.use(Vuex);
 const store = new Vuex.Store({
+  plugins: [vuexPersist.plugin],
   strict: true,
   state: getDefaultState(),
   getters: {
@@ -32,7 +39,7 @@ const store = new Vuex.Store({
       try {
         const user = await loginPost(credentials);
         commit('setLoggedUser', user);
-        router.push('/welcome').then()
+        router.push('/main/welcome').then()
       } catch (err) {
         console.log(err);
         alert('מייל או סיסמה אינם נכונים.');
@@ -41,6 +48,7 @@ const store = new Vuex.Store({
 
     logout({commit}) {
       commit('removeLoggedUser')
+      router.push('/login').then()
     }
   }
 });

@@ -16,6 +16,7 @@
           v-model="email.value"
           @focus="handleFocus('email')"
           @blur="handleBlur('email')"/>
+
         <div class="login_form_input_info login_form_input_info_email">
           <div
             class="login_form_input_info_container"
@@ -25,7 +26,7 @@
               כתובת המייל אינה תקינה
             </p>
             <p
-              to="/welcome"
+
               class="login_form_input_info_tip">
               כתובת המייל איתה נרשמת לחשבונית ירוקה
             </p>
@@ -55,13 +56,15 @@
             </p>
             <router-link
               to="/welcome"
-              class="login_form_input_info_tip">?שכחת סיסמה
+              class="login_form_input_info_tip">
+              ?שכחת סיסמה
             </router-link>
           </div>
         </div>
       </div>
 
     </form>
+
     <div class="login_buttons">
       <button class="login_buttons_google_login">כניסה עם גוגל</button>
       <button class="login_buttons_email_login" ref="login" @click="login()">כניסה</button>

@@ -1,9 +1,7 @@
 import {httpService} from './httpService'
 
 export async function loginPost (credentials) {
-  const bla = await httpService.POST('/account/login', credentials)
-  console.log('bla=',bla)
-  return bla
+  return await httpService.POST('/account/login', credentials)
 }
 
 export function getValidationObj(inputType) {

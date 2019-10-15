@@ -14,13 +14,11 @@ let axios = Axios.create({
 
 async function ajax(endpoint, method, data = null) {
   try {
-    console.log('data=', data)
     const res = await axios({
       url: `${BASE_URL}${endpoint}`,
       method,
       data
     });
-    console.log('res.data=', res.data)
     return res.data;
   } catch (err) {
     console.log(err);
