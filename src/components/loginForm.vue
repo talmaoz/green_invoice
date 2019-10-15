@@ -101,6 +101,10 @@
         });
       },
 
+      handleFocus(inputField) {
+        this[inputField].error = null;
+      },
+
       handleBlur(inputField) {
         this[inputField].active = false;
         const validate = getValidationObj(inputField);
@@ -117,15 +121,6 @@
         return addClass;
       },
 
-      handleFocus(inputField) {
-        this[inputField].error = null;
-      }
-    },
-    computed: {
-      emailInfo() {
-        const info = 'כתובת המייל איתה נרשמת לחשבונית ירוקה';
-        return (this.email.error) ? this.email.error : info;
-      }
     },
   };
 
@@ -285,24 +280,6 @@
       .login_form_input_info {
         border-top: 1px solid red;
       }
-    }
-
-    .clicked_input {
-
-      .login_form_input_label {
-        bottom: 26px;
-        font-size: 0.95rem;
-        color: $color-4;
-      }
-
-      .login_form_input_info {
-        border-top: 1px solid $color-4;
-      }
-
-      input {
-        display: block;
-      }
-
     }
 
     &_buttons {
