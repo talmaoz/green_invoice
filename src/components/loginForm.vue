@@ -14,14 +14,16 @@
           @focus="handleFocus('email')"
           @blur="handleBlur('email')"/>
         <div class="login_form_input_info login_form_input_info_email">
-          <div class="my_cont" :class="(email.error)? 'display_password_err': ''">
+          <div
+            class="login_form_input_info_container"
+            :class="(email.error)? 'display_err': ''">
             <p
-              class="password_err_msg">
+              class="login_form_input_info_err_msg">
               כתובת המייל אינה תקינה
             </p>
             <p
               to="/welcome"
-              class="forgot_password">
+              class="login_form_input_info_tip">
               כתובת המייל איתה נרשמת לחשבונית ירוקה
             </p>
           </div>
@@ -29,7 +31,7 @@
       </div>
 
       <div
-        class="login_form_input login_form_input_password"
+        class="login_form_input"
         @click="inputSelected('password')"
         :class="setInputClass('password')">
         <p class="login_form_input_label">סיסמה</p>
@@ -41,14 +43,16 @@
           @blur="handleBlur('password')"
           type="password" maxlength="16"/>
         <div class="login_form_input_info">
-          <div class="my_cont" :class="(password.error)? 'display_password_err': ''">
+          <div
+            class="login_form_input_info_container"
+            :class="(password.error)? 'display_err': ''">
             <p
-              class="password_err_msg">
+              class="login_form_input_info_err_msg">
               יש להזין 8-16 תווים
             </p>
             <router-link
               to="/welcome"
-              class="forgot_password">?שכחת סיסמה
+              class="login_form_input_info_tip">?שכחת סיסמה
             </router-link>
           </div>
         </div>
@@ -212,66 +216,47 @@
           outline: none;
         }
 
+        &_info_email {
+          overflow: hidden;
+        }
+
         &_info {
           border-top: 1px solid $color-2;
-          height: 28px;
+          height: 25px;
+          display: block;
+          font-size: 14px;
+          transition: all 300ms;
 
-          &_email {
-            height: 24px;
-            overflow: hidden;
-          }
-
-
-          .password_err_msg {
+          &_err_msg {
             color: red;
           }
 
-          .my_cont {
+          .display_err {
+            top: 0;
+            transition: all 300ms;
+          }
+
+          &_container {
             position: relative;
             top: -19px;
             z-index: -5;
             transition: all 300ms;
-            height: 36px;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
 
           }
+
+          &_tip {
+            color: $color-2;
+          }
         }
-
-        .display_password_err {
-          top: 0;
-          transition: all 300ms;
-        }
-
-        &_info {
-          display: block;
-          font-size: 14px;
-          /*line-height: 28px;*/
-          transition: all 300ms;
-        }
-
-        &_info .forgot_password {
-          color: $color-2;
-        }
-
-
-        // forgot_password {
-        //  position: relative;
-        //  top: -1px;
-        //  right: 0;
-        //
-      }
-
-      &_input_password {
-        /*margin-bottom: 10px;*/
       }
 
       &_input_email {
-        margin-bottom: 0;
         margin-top: 28px;
       }
-
     }
 
     .display_input {
@@ -299,20 +284,7 @@
     .input_error {
       .login_form_input_info {
         border-top: 1px solid red;
-        color: red;
       }
-
-      //.login_form_input_info a {
-      //  border-top: none;
-      //  position: absolute;
-      //  bottom: 0;
-      //  right: 0;
-      //}
-
-      // .password_err_msg {
-      //   opacity: 1;
-      //   top: 28px;
-      // }
     }
 
     .clicked_input {
