@@ -1,7 +1,10 @@
 <template>
   <section class="login">
+
     <p class="login_title">התחברות לחשבונית ירוקה</p>
+
     <form @submit.prevent="" class="login_form">
+
       <div
         class="login_form_input login_form_input_email"
         @click="handleFocus('email')"
@@ -63,6 +66,7 @@
       <button class="login_buttons_google_login">כניסה עם גוגל</button>
       <button class="login_buttons_email_login" ref="login" @click="login()">כניסה</button>
     </div>
+
   </section>
 </template>
 
