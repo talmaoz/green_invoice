@@ -30,11 +30,6 @@
     border: none;
   }
 
-  a {
-    color: $color-4;
-    text-align: right;
-  }
-
   #app {
     font-family: almoni-neue-dl, arial, sans-serif;
     -webkit-font-smoothing: antialiased;

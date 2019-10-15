@@ -1,8 +1,9 @@
 <template>
   <section class="main_page">
 
-    <div class="header_container">
-      <div class="nav_bar_container">
+    <div class="main_header">
+
+      <div class="flex_column">
         <nav>
           <router-link
             v-for="route in routes"
@@ -14,7 +15,10 @@
         </nav>
       </div>
 
-      <app_header/>
+      <div class="flex_column">
+        <img :src="require('../assets/green_logo.svg')" alt="Green Invoice Logo"/>
+      </div>
+
     </div>
 
     <router-view class="content"></router-view>
@@ -44,7 +48,9 @@
       getNavRoutes() {
         let navRoutes;
         this.$router.options.routes.forEach(route => {
-          if (route.name === 'main') {navRoutes = route.children;}
+          if (route.name === 'main') {
+            navRoutes = route.children;
+          }
         });
         return navRoutes;
       },
@@ -61,30 +67,50 @@
     width: 100%;
     height: 100%;
 
-    .header_container {
+    .main_header {
       width: 100%;
-      float: right;
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      background-color: white;
+      box-shadow: 0 0 4px rgba(0, 0, 0, .25);
+      padding: 10px 85px;
+      @include w3 {padding: 10px 20px;}
+      @include w4 {padding: 10px 10px;}
+      position: fixed;
 
-      .nav_bar_container {
-        height: 70px;
-        position: fixed;
+      .flex_column {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        padding-left: 85px;
+
+        img {
+          height: 34px;
+          width: 223px;
+          @include w3 {
+            height: 28px;
+            width: 184px;
+          }
+          @include w4 {
+            height: 22px;
+            width: 144px;
+          }
+        }
 
         nav {
-          float: left;
           display: flex;
           justify-content: space-around;
 
           .nav_bar_item {
+            color: $color-2;
             text-align: center;
-            vertical-align: center;
             min-width: 80px;
+            @include w4 {min-width: 50px;}
+            text-decoration: none;
+            font-size: 1.1em;
+          }
+
+          .router-link-active{
+            color: $color-4;
           }
         }
       }
@@ -92,8 +118,11 @@
 
     .content {
       height: 100%;
-      width: 100%;
-      padding-top: 70px
+      margin: 0 auto;
+      padding-top: 54px;
+      @include w3 {padding-top: 48px;}
+      @include w4 {padding-top: 42px;}
+      background-color: #f6f7f8;
     }
   }
 

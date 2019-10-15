@@ -36,12 +36,8 @@ const MAIN_ROUTES = [
 
     children: [
       {
-        path: '/main/welcome',
-        name: 'welcome',
-        component: welcome,
-        isNavItem: true,
-        displayName: 'לובי',
-        meta: {requiresAuth: true}
+        path: '/main',
+        redirect: '/main/welcome'
       },
       {
         path: '/main/accountDetails',
@@ -50,7 +46,15 @@ const MAIN_ROUTES = [
         isNavItem: true,
         displayName: 'החשבון שלי',
         meta: {requiresAuth: true}
-      }
+      },
+      {
+        path: '/main/welcome',
+        name: 'welcome',
+        component: welcome,
+        isNavItem: true,
+        displayName: 'לובי',
+        meta: {requiresAuth: true}
+      },
     ]
 
   },
