@@ -23,7 +23,6 @@
 
     <router-view class="content"></router-view>
 
-    <button @click="logout()">יציאה</button>
   </section>
 </template>
 
@@ -58,6 +57,8 @@
   };
 
 </script>
+
+
 
 <style lang="scss" scoped>
   @import "../scss/_variables.scss";
@@ -117,11 +118,22 @@
     }
 
     .content {
-      height: 100%;
-      margin: 0 auto;
-      padding-top: 54px;
-      @include w3 {padding-top: 48px;}
-      @include w4 {padding-top: 42px;}
+
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      position: relative;
+      top: 54px;
+      height: calc(100% - 54px);
+      @include w3 {
+        top: 48px;
+        height: calc(100% - 48px);
+      }
+      @include w4 {
+        top: 42px;
+        height: calc(100% - 42px);
+      }
       background-color: #f6f7f8;
     }
   }

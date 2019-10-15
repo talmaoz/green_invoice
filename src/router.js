@@ -36,10 +36,6 @@ const MAIN_ROUTES = [
 
     children: [
       {
-        path: '/main',
-        redirect: '/main/welcome'
-      },
-      {
         path: '/main/accountDetails',
         name: 'accountDetails',
         component: accountDetails,
@@ -58,9 +54,6 @@ const MAIN_ROUTES = [
     ]
 
   },
-
-
-
 ]
 
 const ROUTES = [].concat(REDIRECT_ROUTES, MAIN_ROUTES)
