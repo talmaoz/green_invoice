@@ -180,6 +180,7 @@
         }
 
         input {
+          height: 32px;
           width: 100%;
           border: none;
           display: none;
@@ -199,17 +200,23 @@
 
         &_info {
           border-top: 1px solid $color-2;
+          height: 28px;
         }
 
         .my_cont {
           position: relative;
-          top: -28px;
+          top: -19px;
           z-index: -5;
           transition: all 1500ms;
+          height: 36px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
         }
 
         .display_password_err {
-          top: -8px;
+          top: 0;
           transition: all 1500ms;
         }
 
@@ -217,7 +224,7 @@
           display: block;
           color: $color-2;
           font-size: 14px;
-          line-height: 28px;
+          /*line-height: 28px;*/
           transition: all 1500ms;
         }
 
