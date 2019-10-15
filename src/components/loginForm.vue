@@ -13,8 +13,21 @@
           v-model="email.value"
           @focus="handleFocus('email')"
           @blur="handleBlur('email')"/>
-        <p class="login_form_input_info">{{emailInfo}}</p>
+        <div class="login_form_input_info login_form_input_info_email">
+          <div class="my_cont" :class="(email.error)? 'display_password_err': ''">
+            <p
+              class="password_err_msg">
+              כתובת המייל אינה תקינה
+            </p>
+            <p
+              to="/welcome"
+              class="forgot_password">
+              כתובת המייל איתה נרשמת לחשבונית ירוקה
+            </p>
+          </div>
+        </div>
       </div>
+
       <div
         class="login_form_input login_form_input_password"
         @click="inputSelected('password')"
@@ -35,12 +48,12 @@
             </p>
             <router-link
               to="/welcome"
-
               class="forgot_password">?שכחת סיסמה
             </router-link>
           </div>
         </div>
       </div>
+
     </form>
     <div class="login_buttons">
       <button class="login_buttons_google_login">כניסה עם גוגל</button>
@@ -150,6 +163,7 @@
     }
 
     &_form {
+
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -172,7 +186,7 @@
           font-size: 20px;
           padding-bottom: 3px;
           z-index: 100;
-          transition: all 1500ms;
+          transition: all 300ms;
           color: $color-2;
           position: relative;
           bottom: 0;
@@ -201,40 +215,46 @@
         &_info {
           border-top: 1px solid $color-2;
           height: 28px;
-        }
 
-        .my_cont {
-          position: relative;
-          top: -19px;
-          z-index: -5;
-          transition: all 1500ms;
-          height: 36px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
+          &_email {
+            height: 24px;
+            overflow: hidden;
+          }
 
+
+          .password_err_msg {
+            color: red;
+          }
+
+          .my_cont {
+            position: relative;
+            top: -19px;
+            z-index: -5;
+            transition: all 300ms;
+            height: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+          }
         }
 
         .display_password_err {
           top: 0;
-          transition: all 1500ms;
+          transition: all 300ms;
         }
 
-        &_info, a {
+        &_info {
           display: block;
-          color: $color-2;
           font-size: 14px;
           /*line-height: 28px;*/
-          transition: all 1500ms;
+          transition: all 300ms;
         }
 
-        // .password_err_msg {
-        //   /*opacity: 0;*/
-        //   position: relative;
-        //   top: 0px;
-        //   right: 0;
-        //   z-index: -5;
-        // }
+        &_info .forgot_password {
+          color: $color-2;
+        }
+
 
         // forgot_password {
         //  position: relative;
