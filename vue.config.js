@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/green_invoice/'
+  publicPath: '/green_invoice/dist/'
 }
