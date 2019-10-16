@@ -70,6 +70,7 @@
     }
 
     &_left {
+      color: $color-4;
       width: 30%;
       padding-top: 1.7em;
       text-align: left;

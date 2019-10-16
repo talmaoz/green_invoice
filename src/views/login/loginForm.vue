@@ -309,43 +309,44 @@
       &_email_login {
         background-color: $color-1;
         color: $color-3;
-        min-width: 226px;
-        @include w4 {min-width: 138px;}
-        @include h2 {min-width: 138px;}
-        // width: 54%;
-        // @include w4 {
-        //   width: 48%;
-        // }
-        // @include h2 {
-        //   width: 48%;
-        // }
-        // margin-left: 2%;
         font-weight: 500;
+
+        min-width: 226px;
+        @include w1 {min-width: 197px;}
+        @include w4 {min-width: 142px;}
+        @include h2 {min-width: 142px;}
+
+        // width: 54%;
+        // @include w4 {width: 48%;}
+        // @include h2 {width: 48%;}
+        // margin-left: 2%;
       }
 
       &_google_login {
         background-color: white;
         color: $color-1;
-        min-width: 172px;
+        font-weight: 600;
+
+        min-width: 173px;
+        @include w1 {min-width: 138px;}
         @include w4 {min-width: 138px;}
         @include h2 {min-width: 138px;}
 
         // width: 41%;
-        // @include w4 {
-        //   width: 47%;
-        // }
-        // @include h2 {
-        //   width: 47%;
-        // }
+        // @include w4 {width: 47%;}
+        // @include h2 {width: 47%;}
         // margin-right: 3%;
+
         border-radius: 30px;
-        border: 1px solid #5268F1;
-        font-weight: 600;
+        border: 1px solid $color-1;
         background-image: url('../../assets/Google_G.svg');
         background-repeat: no-repeat;
         background-size: 25px auto;
         background-position: left 18px center;
         @include w1 {
+          background-position: left 10px center;
+        }
+        @include h2 {
           background-position: left 10px center;
         }
         padding-left: 40px;
