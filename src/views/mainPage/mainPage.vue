@@ -16,7 +16,7 @@
       </div>
 
       <div class="flex_column">
-        <img :src="require('../assets/green_logo.svg')" alt="Green Invoice Logo"/>
+        <img :src="require('../../assets/green_logo.svg')" alt="Green Invoice Logo"/>
       </div>
 
     </div>
@@ -28,7 +28,7 @@
 
 <script>
 
-  import app_header from '../components/appHeader';
+  import app_header from '../login/loginHeader';
 
   export default {
     name: 'mainPage',
@@ -56,8 +56,8 @@
 
 
 <style lang="scss" scoped>
-  @import "../scss/_variables.scss";
-  @import "../scss/_mixins.scss";
+  @import "../../scss/variables";
+  @import "../../scss/mixins";
 
   .main_page {
     width: 100%;

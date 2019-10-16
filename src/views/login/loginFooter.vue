@@ -2,7 +2,7 @@
   <footer class="app_footer">
     <div class="app_footer_right">
       <div class="app_footer_right_rights_reserved">
-        <img :src="require('../assets/green_leaf.svg')" alt="Green Invoice Logo"/>
+        <img :src="require('../../assets/green_leaf.svg')" alt="Green Invoice Logo"/>
         <p>חשבונית ירוקה &copy; 2019 </p>
       </div>
 
@@ -24,8 +24,8 @@
 
 <style lang="scss" scoped>
 
-  @import "../scss/_variables.scss";
-  @import "../scss/_mixins.scss";
+  @import "../../scss/variables";
+  @import "../../scss/mixins";
 
   .app_footer {
     display: flex;

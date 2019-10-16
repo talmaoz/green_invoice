@@ -56,8 +56,8 @@
 
 <style lang="scss" scoped>
 
-  @import "../scss/_variables.scss";
-  @import "../scss/_mixins.scss";
+  @import "../../scss/variables";
+  @import "../../scss/mixins";
 
   .account_details_container {
     background-color: white;

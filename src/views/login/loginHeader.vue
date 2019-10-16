@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img :src="require('../assets/green_logo.svg')" alt="Green Invoice Logo"/>
+    <img :src="require('../../assets/green_logo.svg')" alt="Green Invoice Logo"/>
   </header>
 </template>
 
@@ -14,8 +14,8 @@
 
 <style lang="scss" scoped>
 
-  @import "../scss/_variables.scss";
-  @import "../scss/_mixins.scss";
+  @import "../../scss/variables";
+  @import "../../scss/mixins";
 
   header {
     padding-top: 36px;

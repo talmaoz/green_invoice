@@ -75,7 +75,7 @@
 
 <script>
 
-  import { getValidationObj } from '../service/loginService';
+  import { getValidationObj } from '../../service/loginService';
 
   export default {
     name: 'loginForm',
@@ -131,8 +131,8 @@
 
 <style lang="scss" scoped>
 
-  @import "../scss/_variables.scss";
-  @import "../scss/_mixins.scss";
+  @import "../../scss/variables";
+  @import "../../scss/mixins";
 
   .login {
     margin-bottom: 62px;
@@ -330,7 +330,7 @@
         border-radius: 30px;
         border: 1px solid #5268F1;
         font-weight: 600;
-        background-image: url('../assets/Google_G.svg');
+        background-image: url('../../assets/Google_G.svg');
         background-repeat: no-repeat;
         background-size: 25px auto;
         background-position: left 18px center;

@@ -3,7 +3,7 @@
 
     <div class="left">
       <div class="center">
-        <img :src="require('../assets/green_login_page.svg')" alt="Login Background Image"/>
+        <img :src="require('../../assets/green_login_page.svg')" alt="Login Background Image"/>
       </div>
     </div>
 
@@ -18,9 +18,9 @@
 
 <script>
 
-  import app_header from '../components/appHeader';
-  import login_form from '../components/loginForm';
-  import app_footer from '../components/appFooter';
+  import app_header from './loginHeader';
+  import login_form from './loginForm';
+  import app_footer from './loginFooter';
 
   export default {
     name: 'loginPage',
@@ -30,8 +30,8 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../scss/_variables.scss";
-  @import "../scss/_mixins.scss";
+  @import "../../scss/variables";
+  @import "../../scss/mixins";
 
   .login_page {
     width: 100%;

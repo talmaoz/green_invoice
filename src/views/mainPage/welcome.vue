@@ -32,8 +32,8 @@
 
 <style lang="scss" scoped>
 
-  @import "../scss/_variables.scss";
-  @import "../scss/_mixins.scss";
+  @import "../../scss/variables";
+  @import "../../scss/mixins";
 
   .welcome_container {
     background-color: white;

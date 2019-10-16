@@ -1,10 +1,10 @@
-import store from '@/store'
+import store from './store'
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from './views/login'
-import main from './views/main'
-import welcome from './views/welcome';
-import accountDetails from './views/accountDetails'
+import login from './views/login/loginPage'
+import main from './views/mainPage/mainPage'
+import welcome from './views/mainPage/welcome';
+import accountDetails from './views/mainPage/accountDetails'
 
 Vue.use(Router)
 
@@ -24,14 +24,12 @@ const MAIN_ROUTES = [
     path: '/login',
     name: 'login',
     component: login,
-    isNavItem: false,
     meta: {requiresAuth: false},
   },
   {
     path: '/main/:id',
     name: 'main',
     component: main,
-    isNavItem: false,
     meta: {requiresAuth: true},
 
     children: [
@@ -39,7 +37,6 @@ const MAIN_ROUTES = [
         path: '/main/accountDetails',
         name: 'accountDetails',
         component: accountDetails,
-        isNavItem: true,
         displayName: 'החשבון שלי',
         meta: {requiresAuth: true}
       },
@@ -47,7 +44,6 @@ const MAIN_ROUTES = [
         path: '/main/welcome',
         name: 'welcome',
         component: welcome,
-        isNavItem: true,
         displayName: 'לובי',
         meta: {requiresAuth: true}
       },
@@ -67,7 +63,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const currentUser = store.getters.getLoggedUser;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if (to.name === 'login' && currentUser) next('/main')
+  if (to.name === 'login' && currentUser) next('/main/welcome')
   else if (requiresAuth && !currentUser) next('/login')
   else next()
 });
