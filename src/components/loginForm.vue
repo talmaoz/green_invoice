@@ -248,6 +248,7 @@
 
           &_tip {
             color: $color-2;
+            text-align: right;
           }
         }
       }

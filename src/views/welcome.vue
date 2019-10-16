@@ -7,12 +7,10 @@
           שלום
         </p>
         <p>ברוך הבא לעסק שלך</p>
-        <p>{{user.businesses[0].name}}</p>
+        <p>"{{user.businesses[0].name}}"</p>
       </div>
       <button @click="logout()">יציאה</button>
     </div>
-
-
   </section>
 </template>
 
@@ -26,15 +24,10 @@
     },
     methods: {
       logout() {
-        // this.$store.dispatch('logout');
+        this.$store.dispatch('logout');
       },
     },
-
-    created() {
-      console.log(this.$store.getters.getLoggedUser);
-    }
   };
-
 </script>
 
 <style lang="scss" scoped>

@@ -5,15 +5,39 @@
       <p class="title">פרטי העסק שלך</p>
 
       <div class="details_list">
-        <p>
-          {{user.firstName}}
-          שלום
-        </p>
-        <p>ברוך הבא לעסק שלך</p>
-        <p>{{user.businesses[0].name}}</p>
-      </div>
-    </div>
 
+        <div class="details_list_row">
+          <p class="details_list_row_title">שם פרטי</p>
+          <p class="details_list_row_value">{{user.firstName}}</p>
+        </div>
+
+        <div class="details_list_row">
+          <p class="details_list_row_title">שם משפחה</p>
+          <p class="details_list_row_value">{{user.lastName}}</p>
+        </div>
+
+        <div class="details_list_row">
+          <p class="details_list_row_title">אימייל</p>
+          <p class="details_list_row_value">{{user.email}}</p>
+        </div>
+
+        <div class="details_list_row">
+          <p class="details_list_row_title">שם עסק</p>
+          <p class="details_list_row_value">{{user.businesses[0].name}}</p>
+        </div>
+
+        <div class="details_list_row">
+          <p class="details_list_row_title">כתובת עסק</p>
+          <p class="details_list_row_value">
+            {{user.businesses[0].address}}
+            ,
+            {{user.businesses[0].city}}
+          </p>
+        </div>
+
+      </div>
+
+    </div>
 
   </section>
 </template>
@@ -26,10 +50,6 @@
         user: this.$store.getters.getLoggedUser,
       };
     },
-
-    created() {
-      console.log(this.$store.getters.getLoggedUser);
-    }
   };
 
 </script>
@@ -41,13 +61,9 @@
 
   .account_details_container {
     background-color: white;
-    height: 200px;
     width: 300px;
     margin: 20px auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
     p {
       text-align: center;
@@ -59,14 +75,25 @@
       font-weight: 700;
       letter-spacing: -0.01rem;
       border-bottom: 1px solid #d4dade;
+      margin-bottom: 10px;
     }
 
     .details_list {
-      p {
-        margin: 5px;
+      .details_list_row {
+        margin: 5px 20px;
+        direction: rtl;
 
+        p {
+          display: inline-block;
+          width: 50%;
+          direction: rtl;
+          text-align: start;
+        }
+
+        &_title {
+          font-weight: bold;
+        }
       }
     }
-
   }
 </style>
