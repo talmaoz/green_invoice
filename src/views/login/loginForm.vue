@@ -288,6 +288,9 @@
 
     &_buttons {
 
+      display: flex;
+      justify-content: space-between;
+
       & > button {
         line-height: 53px;
         font-size: 17px;
@@ -299,34 +302,42 @@
         @include h2 {
           line-height: 34px;
           font-size: 14px;
+
         }
       }
 
       &_email_login {
         background-color: $color-1;
         color: $color-3;
-        width: 54%;
-        @include w4 {
-          width: 48%;
-        }
-        @include h2 {
-          width: 48%;
-        }
-        margin-left: 2%;
+        min-width: 226px;
+        @include w4 {min-width: 138px;}
+        @include h2 {min-width: 138px;}
+        // width: 54%;
+        // @include w4 {
+        //   width: 48%;
+        // }
+        // @include h2 {
+        //   width: 48%;
+        // }
+        // margin-left: 2%;
         font-weight: 500;
       }
 
       &_google_login {
         background-color: white;
         color: $color-1;
-        width: 41%;
-        @include w4 {
-          width: 47%;
-        }
-        @include h2 {
-          width: 47%;
-        }
-        margin-right: 3%;
+        min-width: 172px;
+        @include w4 {min-width: 138px;}
+        @include h2 {min-width: 138px;}
+
+        // width: 41%;
+        // @include w4 {
+        //   width: 47%;
+        // }
+        // @include h2 {
+        //   width: 47%;
+        // }
+        // margin-right: 3%;
         border-radius: 30px;
         border: 1px solid #5268F1;
         font-weight: 600;
