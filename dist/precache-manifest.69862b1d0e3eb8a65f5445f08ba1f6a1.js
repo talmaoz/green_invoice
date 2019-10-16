@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/green_invoice/dist/js/chunk-vendors.b02d9bb2.js"
   },
   {
-    "revision": "c8c623a5ef2d3e23c36e",
-    "url": "/green_invoice/dist/js/app.1d44edae.js"
+    "revision": "f17b548e4709699ea422",
+    "url": "/green_invoice/dist/js/app.373baa59.js"
   },
   {
-    "revision": "024fa91cc05b417214823dd4734bda06",
+    "revision": "957554969c2391fd372cb549e5dfdcb3",
     "url": "/green_invoice/dist/index.html"
   },
   {
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/green_invoice/dist/favicon.png"
   },
   {
-    "revision": "c8c623a5ef2d3e23c36e",
-    "url": "/green_invoice/dist/css/app.d3418fc6.css"
+    "revision": "f17b548e4709699ea422",
+    "url": "/green_invoice/dist/css/app.3804bac3.css"
   }
 ];

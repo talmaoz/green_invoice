@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/green_invoice/dist/precache-manifest.9e2cb66502367106dae88fb8c5f0e193.js"
+  "/green_invoice/dist/precache-manifest.69862b1d0e3eb8a65f5445f08ba1f6a1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "green_invoice"});

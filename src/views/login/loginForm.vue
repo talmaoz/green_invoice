@@ -297,11 +297,11 @@
         border-radius: 29px;
         @include w4 {
           line-height: 34px;
-          font-size: 14px;
+          font-size: 12px;
         }
         @include h2 {
           line-height: 34px;
-          font-size: 14px;
+          font-size: 12px;
 
         }
       }

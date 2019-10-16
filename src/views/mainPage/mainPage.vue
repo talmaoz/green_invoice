@@ -118,7 +118,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: start;
+      justify-content: flex-start;
       position: relative;
       top: 54px;
       height: calc(100% - 54px);
